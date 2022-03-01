@@ -1,0 +1,25 @@
+theme: harbor
+baseURL: https://trukhanov.com/
+disablePathToLower: true
+languageCode: en-us
+title: Perpetuum informatio - Never ending IT story
+enableRobotsTXT: true
+paginate: 20
+googleAnalytics: UA-19900770-2
+disqusShortName: trukhanov-com
+params:
+  customCSS: 
+    - "/css/custom.css"
+markup:
+  highlight:
+    anchorLineNos: false
+    codeFences: true
+    guessSyntax: false
+    hl_Lines: ""
+    lineAnchors: ""
+    lineNoStart: 1
+    lineNos: true
+    lineNumbersInTable: true
+    noClasses: true
+    style: pygments
+    tabWidth: 4
