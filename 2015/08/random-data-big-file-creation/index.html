@@ -1,0 +1,69 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<title>Random data big file creation</title><script async src="https://www.googletagmanager.com/gtag/js?id=UA-19900770-2"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","UA-19900770-2")</script>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<link rel=alternate type=application/rss+xml href=https://trukhanov.com/index.xml title="Perpetuum informatio - Never ending IT story">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Random data big file creation">
+<meta name=twitter:description content="Sometimes you just need a big file. For example to test network speed, of backup speed. And to prevent software of hardware compression you need this file to be absolutely random. Also you do not want to write this file byte by byte, as it can be really slow. Here is my version of powershell script to generate such file:">
+<link rel=stylesheet href=https://trukhanov.com/fontawesome/css/all.min.css>
+<link crossorigin=anonymous href=/css/styles.min.css integrity rel="preload stylesheet" as=style>
+<link rel=stylesheet href=https://trukhanov.com/css/custom.css>
+<link id=dark-mode-theme crossorigin=anonymous href=/css/dark.min.css integrity rel="preload stylesheet" as=style>
+<script>var darkTheme=document.getElementById("dark-mode-theme"),storedTheme=localStorage.getItem("dark-mode-storage");storedTheme==="dark"?darkTheme.disabled=!1:storedTheme==="light"&&(darkTheme.disabled=!0)</script>
+<script defer crossorigin=anonymous src=/js/theme.js integrity></script>
+<script defer crossorigin=anonymous src=/js/instantpage.min.js integrity></script><meta name=generator content="Hugo 0.93.0">
+</head><body>
+<header>
+<nav class=navbar>
+<div class=nav>
+<ul class=nav-links>
+</ul></div></nav><div class=intro-header>
+<div class=container>
+<div class=post-heading>
+<h1>
+Random data big file creation
+</h1><span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Aug 10, 2015
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Windows-Server/>Windows Server</a>&nbsp;
+</span>
+</div></div></div></header><div class=container role=main>
+<article class=article class=blog-post>
+<p>Sometimes you just need a big file. For example to test network speed, of backup speed. And to prevent software of hardware compression you need this file to be absolutely random. Also you do not want to write this file byte by byte, as it can be really slow. Here is my version of powershell script to generate such file:</p><div class=highlight><div style=-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=display:flex><span><span style=color:#19177c>$chunksize</span>=2*1024*1024 <span style=color:#408080;font-style:italic>#I use 2 Mb chunks</span>
+</span></span><span style=display:flex><span><span style=color:#19177c>$filesize</span> = 50*1024*1024*1024 <span style=color:#408080;font-style:italic># File size in bytes</span>
+</span></span><span style=display:flex><span><span style=color:#800>[Byte[]]</span><span style=color:#19177c>$randombuffer</span>=@(0)*<span style=color:#19177c>$chunksize</span> <span style=color:#408080;font-style:italic>#First of all we create buffer filled with zeroes</span>
+</span></span><span style=display:flex><span><span style=color:#19177c>$Random</span> = <span style=color:green>New-Object</span> System.Random <span style=color:#408080;font-style:italic>#Our random number generator</span>
+</span></span><span style=display:flex><span><span style=color:#19177c>$myfile</span> = <span style=color:green>New-Object</span> IO.FileStream <span style=color:#ba2121>&#34;c:\testfile&#34;</span>, <span style=color:#ba2121>&#39;Append&#39;</span> <span style=color:#408080;font-style:italic>#Replace c:\testfile with the proper path</span>
+</span></span><span style=display:flex><span>1..(<span style=color:#19177c>$filesize</span>/<span style=color:#19177c>$chunksize</span>) | %{<span style=color:#19177c>$Random</span>.NextBytes(<span style=color:#19177c>$randombuffer</span>);<span style=color:#19177c>$myfile</span>.Write(<span style=color:#19177c>$randombuffer</span>,0,<span style=color:#19177c>$randombuffer</span>.Length)};<span style=color:#19177c>$myfile</span>.Close() <span style=color:#408080;font-style:italic>#Magic</span>
+</span></span></code></pre></td></tr></table></div></div></article><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname=="localhost")return;var e=document.createElement("script"),t;e.type="text/javascript",e.async=!0,t="trukhanov-com",e.src="//"+t+".disqus.com/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)})()</script>
+<noscript>Please enable JavaScript to view the
+<a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com/ class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div><footer>
+<div class=social-icons>
+</div><div class=container>
+<p class="credits copyright">
+<a href=https://trukhanov.com/about></a>
+&nbsp;&copy;
+2017
+&nbsp;/&nbsp;
+<a href=https://trukhanov.com/>Perpetuum informatio - Never ending IT story</a>
+&nbsp;&ndash;&nbsp;
+<em class="fas fa-moon" id=dark-mode-toggle></em>
+</p><p class="credits theme-by">
+Powered By <a href=https://gohugo.io>Hugo</a>&nbsp;
+Theme
+<a href=https://github.com/matsuyoshi30/harbor>Harbor</a>
+</p></div></footer></body></html>

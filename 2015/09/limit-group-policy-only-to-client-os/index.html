@@ -1,0 +1,70 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<title>Limit group policy only to client OS</title><script async src="https://www.googletagmanager.com/gtag/js?id=UA-19900770-2"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","UA-19900770-2")</script>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<link rel=alternate type=application/rss+xml href=https://trukhanov.com/index.xml title="Perpetuum informatio - Never ending IT story">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Limit group policy only to client OS">
+<meta name=twitter:description content="Sometimes you want to apply your policy to every client PC in many OUs. To do such you can use WMI filter. This is especially useful in messy AD structures, where is no dedicated OU for client computer objects.
+Namespace: root\CIMv2
+Query: select * from Win32_OperatingSystem where ProductType=&#34;1&#34;
+">
+<link rel=stylesheet href=https://trukhanov.com/fontawesome/css/all.min.css>
+<link crossorigin=anonymous href=/css/styles.min.css integrity rel="preload stylesheet" as=style>
+<link rel=stylesheet href=https://trukhanov.com/css/custom.css>
+<link id=dark-mode-theme crossorigin=anonymous href=/css/dark.min.css integrity rel="preload stylesheet" as=style>
+<script>var darkTheme=document.getElementById("dark-mode-theme"),storedTheme=localStorage.getItem("dark-mode-storage");storedTheme==="dark"?darkTheme.disabled=!1:storedTheme==="light"&&(darkTheme.disabled=!0)</script>
+<script defer crossorigin=anonymous src=/js/theme.js integrity></script>
+<script defer crossorigin=anonymous src=/js/instantpage.min.js integrity></script><meta name=generator content="Hugo 0.93.0">
+</head><body>
+<header>
+<nav class=navbar>
+<div class=nav>
+<ul class=nav-links>
+</ul></div></nav><div class=intro-header>
+<div class=container>
+<div class=post-heading>
+<h1>
+Limit group policy only to client OS
+</h1><span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Sep 3, 2015
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Active-Directory/>Active Directory</a>&nbsp;
+</span>
+</div></div></div></header><div class=container role=main>
+<article class=article class=blog-post>
+<p>Sometimes you want to apply your policy to every client PC in many OUs. To do such you can use WMI filter. This is especially useful in messy AD structures, where is no dedicated OU for client computer objects.</p><pre tabindex=0><code>Namespace: root\CIMv2
+Query: select * from Win32_OperatingSystem where ProductType=&#34;1&#34;
+</code></pre><p>I use here following WMI Class and property:<br>
+<a href="https://msdn.microsoft.com/en-us/library/aa394239(v=vs.85).aspx#properties">https://msdn.microsoft.com/en-us/library/aa394239(v=vs.85).aspx#properties</a></p><p><strong>ProductType</strong><br>
+Data type: <strong>uint32</strong><br>
+Access type: Read-only<br>
+Additional system information.<br>
+<strong>Work Station</strong> (1)<br>
+<strong>Domain Controller</strong> (2)<br>
+<strong>Server</strong> (3)</p><div class=blog-tags>
+<a href=https://trukhanov.com/tags/Active-Directory/>Active Directory</a>&nbsp;
+<a href=https://trukhanov.com/tags/Group-policy/>Group policy</a>&nbsp;
+<a href=https://trukhanov.com/tags/wmi/>wmi</a>&nbsp;
+</div></article><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname=="localhost")return;var e=document.createElement("script"),t;e.type="text/javascript",e.async=!0,t="trukhanov-com",e.src="//"+t+".disqus.com/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)})()</script>
+<noscript>Please enable JavaScript to view the
+<a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com/ class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div><footer>
+<div class=social-icons>
+</div><div class=container>
+<p class="credits copyright">
+<a href=https://trukhanov.com/about></a>
+&nbsp;&copy;
+2017
+&nbsp;/&nbsp;
+<a href=https://trukhanov.com/>Perpetuum informatio - Never ending IT story</a>
+&nbsp;&ndash;&nbsp;
+<em class="fas fa-moon" id=dark-mode-toggle></em>
+</p><p class="credits theme-by">
+Powered By <a href=https://gohugo.io>Hugo</a>&nbsp;
+Theme
+<a href=https://github.com/matsuyoshi30/harbor>Harbor</a>
+</p></div></footer></body></html>

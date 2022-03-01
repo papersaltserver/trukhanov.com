@@ -1,0 +1,143 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<title>Windows Server</title><script async src="https://www.googletagmanager.com/gtag/js?id=UA-19900770-2"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","UA-19900770-2")</script>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<link rel=alternate type=application/rss+xml href=https://trukhanov.com/index.xml title="Perpetuum informatio - Never ending IT story">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Windows Server">
+<meta name=twitter:description content>
+<link rel=stylesheet href=https://trukhanov.com/fontawesome/css/all.min.css>
+<link crossorigin=anonymous href=/css/styles.min.css integrity rel="preload stylesheet" as=style>
+<link rel=stylesheet href=https://trukhanov.com/css/custom.css>
+<link id=dark-mode-theme crossorigin=anonymous href=/css/dark.min.css integrity rel="preload stylesheet" as=style>
+<script>var darkTheme=document.getElementById("dark-mode-theme"),storedTheme=localStorage.getItem("dark-mode-storage");storedTheme==="dark"?darkTheme.disabled=!1:storedTheme==="light"&&(darkTheme.disabled=!0)</script>
+<script defer crossorigin=anonymous src=/js/theme.js integrity></script>
+<script defer crossorigin=anonymous src=/js/instantpage.min.js integrity></script><meta name=generator content="Hugo 0.93.0">
+</head><body>
+<header>
+<nav class=navbar>
+<div class=nav>
+<ul class=nav-links>
+</ul></div></nav><div class=intro-header>
+<div class=container>
+<div class=categories-heading>
+<h1>
+Windows Server
+</h1></div></div></div></header><div class=container role=main>
+<div class=posts-list>
+<article class=post-preview>
+<a href=https://trukhanov.com/2017/06/windows-storage-hierarchy-explained/>
+<h2 class=post-title>Windows storage hierarchy explained</h2></a>
+<div class=post-entry>
+<p><p>Quick cheat sheet:</p><ol>
+<li>Physical disk, represented by Win32_DiskDrive and MSFT_Disk WMI classes. This is hardware presented to your computer. It is HDD, SSD, FC LUN or iSCSI LUN.</li><li>Partition, represented by Win32_DiskPartition and MSFT_Partition WMI classes. Partitions are walls that transforming your physical space into rooms, which later can be used to store your data. Physical disk can have 0 or more partitions.</li><li>Volume, represented by Win32_Volume and MSFT_Volume WMI classes. Volumes are named spaces, from abstract rooms you get living room, kitchen and bedrooms. You format room to make it “named room”. Or in other words, you format partition to some file system, i.e. NTFS, FAT or ReFS. Volumes can store data and provide access to it. One partition can have 0 or 1 volume. When partition has 0 volume, in most cases this means that there is no data accessible by user.</li></ol></p><a href=https://trukhanov.com/2017/06/windows-storage-hierarchy-explained/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Jun 17, 2017
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Windows-Server/>Windows Server</a>&nbsp;
+</span>
+</div></article><article class=post-preview>
+<a href=https://trukhanov.com/2016/12/the-update-is-not-applicable-to-your-computer/>
+<h2 class=post-title>“The update is not applicable to your computer”</h2></a>
+<div class=post-entry>
+<p>Recently I’ve needed to apply 2 patches to our Windows 2008 R2. But both patches show me error “The update is not applicable to your computer”. But I knew for sure, that these updates were applicable, because installed file’s version was lower than the one contained in hotfixes.
+In Setup log I’ve got “Windows update could not be installed because of error 2149842967” error.
+The problem was that someone disabled Windows Modules Installer service on this machine, which is TrustedInstaller.</p><a href=https://trukhanov.com/2016/12/the-update-is-not-applicable-to-your-computer/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Dec 2, 2016
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Windows-Server/>Windows Server</a>&nbsp;
+</span>
+</div></article><article class=post-preview>
+<a href=https://trukhanov.com/2015/08/random-data-big-file-creation/>
+<h2 class=post-title>Random data big file creation</h2></a>
+<div class=post-entry>
+<p><p>Sometimes you just need a big file. For example to test network speed, of backup speed. And to prevent software of hardware compression you need this file to be absolutely random. Also you do not want to write this file byte by byte, as it can be really slow. Here is my version of powershell script to generate such file:</p></p><a href=https://trukhanov.com/2015/08/random-data-big-file-creation/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Aug 10, 2015
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Windows-Server/>Windows Server</a>&nbsp;
+</span>
+</div></article><article class=post-preview>
+<a href=https://trukhanov.com/2014/02/wmic-exception-occured/>
+<h2 class=post-title>Wmic exception occured</h2></a>
+<div class=post-entry>
+<p><p>Some time ago we have faced problem that our script which calls wmic to get some values stopped to work. After a short research we have found that on some servers wmic utility stopped to work, showing exception every time we run any command:</p><blockquote>
+<p>wmic os get caption<br>
+ERROR:<br>
+Description = Exception occurred.</p></blockquote></p><a href=https://trukhanov.com/2014/02/wmic-exception-occured/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Feb 6, 2014
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Windows-Server/>Windows Server</a>&nbsp;
+</span>
+</div></article><article class=post-preview>
+<a href=https://trukhanov.com/2014/01/enable-text-console-sol-on-windows-server-2012/>
+<h2 class=post-title>Enable Text Console (SOL) on Windows Server 2012</h2></a>
+<div class=post-entry>
+<p><p>After installing Windows 2012 on old Fujitsu Primergy RX200 we lost ability to manage it with serial console. We’ve even tried to update iRMC firmware with no luck. Problem was resolved after we enabled EMS (Emergency Management Services) with the following set of commands:</p><blockquote>
+<p>BCDedit /bootems {Boot_entry_id} ON</p><p>bcdedit /ems on</p><p>bcdedit /emssettings EMSPORT:2 EMSBAUDRATE:115200</p></blockquote></p><a href=https://trukhanov.com/2014/01/enable-text-console-sol-on-windows-server-2012/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Jan 10, 2014
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Windows-Server/>Windows Server</a>&nbsp;
+</span>
+</div></article><article class=post-preview>
+<a href=https://trukhanov.com/2013/12/find-all-active-ad-users-not-expiring-in-a-month/>
+<h2 class=post-title>Find all active AD users not expiring in a month</h2></a>
+<div class=post-entry>
+<p><p>Sometimes your AD has a lots of temporary users, with accounts expiring in near future, and to ensure that only legitimate users have never expiring or long expiring accounts you want to audit your accounts. To do so, perform next:</p><ol>
+<li>Create test account expiring today</li></ol></p><a href=https://trukhanov.com/2013/12/find-all-active-ad-users-not-expiring-in-a-month/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Dec 23, 2013
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Active-Directory/>Active Directory</a>&nbsp;
+<a href=https://trukhanov.com/categories/Windows-Server/>Windows Server</a>&nbsp;
+</span>
+</div></article><article class=post-preview>
+<a href=https://trukhanov.com/2011/08/fixing-msdtc-errors/>
+<h2 class=post-title>Fixing MSDTC errors 4135 4163 4185 4112</h2></a>
+<div class=post-entry>
+<p><p>One of clients had problem with MSDTC service on Windows 2003 server, which couldn’t start. After short investigation I have found corresponding errors in Application log:</p><blockquote>
+<p>Event Type:    Error<br>
+Event Source:    MSDTC<br>
+Event Category:    LOG<br>
+Event ID:    4163<br>
+Date:        2011-08-02<br>
+Time:        12:02:08 PM<br>
+User:        N/A<br>
+Computer:    <em>servername</em><br>
+Description:<br>
+MS DTC log file not found. After ensuring that all Resource Managers coordinated by MS DTC have no indoubt transactions, please run msdtc -resetlog to create the log file.</p><p>For more information, see Help and Support Center at <a href=http://go.microsoft.com/fwlink/events.asp>http://go.microsoft.com/fwlink/events.asp</a>.</p></blockquote></p><a href=https://trukhanov.com/2011/08/fixing-msdtc-errors/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Aug 2, 2011
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/ProblemFixing/>ProblemFixing</a>&nbsp;
+<a href=https://trukhanov.com/categories/Windows-Server/>Windows Server</a>&nbsp;
+</span>
+</div></article></div></div><footer>
+<div class=social-icons>
+</div><div class=container>
+<p class="credits copyright">
+<a href=https://trukhanov.com/about></a>
+&nbsp;&copy;
+2017
+&nbsp;/&nbsp;
+<a href=https://trukhanov.com/>Perpetuum informatio - Never ending IT story</a>
+&nbsp;&ndash;&nbsp;
+<em class="fas fa-moon" id=dark-mode-toggle></em>
+</p><p class="credits theme-by">
+Powered By <a href=https://gohugo.io>Hugo</a>&nbsp;
+Theme
+<a href=https://github.com/matsuyoshi30/harbor>Harbor</a>
+</p></div></footer></body></html>

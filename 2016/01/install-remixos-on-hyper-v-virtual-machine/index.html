@@ -1,0 +1,104 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<title>Install RemixOS on Hyper-V virtual machine</title><script async src="https://www.googletagmanager.com/gtag/js?id=UA-19900770-2"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","UA-19900770-2")</script>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<link rel=alternate type=application/rss+xml href=https://trukhanov.com/index.xml title="Perpetuum informatio - Never ending IT story">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Install RemixOS on Hyper-V virtual machine">
+<meta name=twitter:description content="Sometimes you just need quickly deploy Android x86 server in your production environment using Microsoft Hyper-V virtualization. Now you can do it with Remix OS.
+Installation to Hyper-V virtual machine is a bit tricky, but possible.">
+<link rel=stylesheet href=https://trukhanov.com/fontawesome/css/all.min.css>
+<link crossorigin=anonymous href=/css/styles.min.css integrity rel="preload stylesheet" as=style>
+<link rel=stylesheet href=https://trukhanov.com/css/custom.css>
+<link id=dark-mode-theme crossorigin=anonymous href=/css/dark.min.css integrity rel="preload stylesheet" as=style>
+<script>var darkTheme=document.getElementById("dark-mode-theme"),storedTheme=localStorage.getItem("dark-mode-storage");storedTheme==="dark"?darkTheme.disabled=!1:storedTheme==="light"&&(darkTheme.disabled=!0)</script>
+<script defer crossorigin=anonymous src=/js/theme.js integrity></script>
+<script defer crossorigin=anonymous src=/js/instantpage.min.js integrity></script><meta name=generator content="Hugo 0.93.0">
+</head><body>
+<header>
+<nav class=navbar>
+<div class=nav>
+<ul class=nav-links>
+</ul></div></nav><div class=intro-header>
+<div class=container>
+<div class=post-heading>
+<h1>
+Install RemixOS on Hyper-V virtual machine
+</h1><span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Jan 21, 2016
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Uncategorized/>Uncategorized</a>&nbsp;
+</span>
+</div></div></div></header><div class=container role=main>
+<article class=article class=blog-post>
+<p>Sometimes you just need quickly deploy Android x86 server in your production environment using Microsoft Hyper-V virtualization. Now you can do it with <a href=http://www.jide.com/en/remixos-for-pc>Remix OS</a>.</p><p>Installation to Hyper-V virtual machine is a bit tricky, but possible.</p><p>First of all create Generation 1 VM with at least 6 Gb HDD. I’ve tested VM with 2 Gb of RAM.</p><p>After creation of VM do not power on it.</p><p>Connect created VHD disk to any windows machine (Disk Management -> Right Click -> Attach VHD)</p><p>Initialize it as MBR disk.</p><p>Format it in FAT32 file system.</p><p>Detach VHD.</p><p>Boot VM with Legacy ISO. Do not choose Resident or Guest mode
+<a href=https://i1.wp.com/trukhanov.com/wp-content/uploads/2016/01/RemixOS-installboot.png title="RemixOS-installboot full piture"><img src="https://i1.wp.com/trukhanov.com/wp-content/uploads/2016/01/RemixOS-installboot.png?resize=300%2C262" alt=RemixOS-installboot title=RemixOS-installboot></a></p><p>Press TAB button. Edit your boot string to:</p><p><code>/kernel initrd=initrd.img root=/dev/ram0 androidboot.hardware=remix_x86_64 androidboot.selinux=permissive quiet INSTALL=1 nomodeset vga=791</code></p><p>You can replace 791 with any 16bit color depth code. More codes can be found at <a href=http://pierre.baudu.in/other/grub.vga.modes.html title="GRUB VGA Modes">GRUB VGA Modes</a></p><p>Chose sda1 partition</p><p><a href=https://i0.wp.com/trukhanov.com/wp-content/uploads/2016/01/RemixOS-installdisk.png><img src="https://i0.wp.com/trukhanov.com/wp-content/uploads/2016/01/RemixOS-installdisk.png?resize=300%2C247" alt=RemixOS-installdisk></a></p><p>Do not format it.</p><p>Chose yes for GRUB installation.</p><p>Skip EFI GRUB2 installation.</p><p>Choose yes for making system directory read-write.</p><p>Choose yes for creating user data image.</p><p>Enter size of data.img. Maximum is 2047 because we formatted our dist to FAT32 file system.</p><p>Now you can run you Android-x86. It’ll take a while, do not panic.
+<a href=https://i1.wp.com/trukhanov.com/wp-content/uploads/2016/01/RemixOS-installfinish.png><img src="https://i1.wp.com/trukhanov.com/wp-content/uploads/2016/01/RemixOS-installfinish.png?resize=300%2C247" alt=RemixOS-installfinish></a><a href=https://i0.wp.com/trukhanov.com/wp-content/uploads/2016/01/RemixOS-installlang.png><img src="https://i0.wp.com/trukhanov.com/wp-content/uploads/2016/01/RemixOS-installlang.png?resize=300%2C248" alt=RemixOS-installlang></a></p><p>Configure it as you wish.</p><p><a href=https://i0.wp.com/trukhanov.com/wp-content/uploads/2016/01/RemixOS-installcompleted.png><img src="https://i0.wp.com/trukhanov.com/wp-content/uploads/2016/01/RemixOS-installcompleted.png?resize=300%2C248" alt=RemixOS-installcompleted></a></p><p>The last thing you need to do is eject ISO from VM and edit created GRUB entries.</p><p>Shutdown your VM and eject ISO.</p><p>Once again attach VHD to Windows machine.</p><p>Edit \grub\menu.lst</p><p>You need to delete extra digits after kernel path, for example if you used vga=791 previously you need to replace <strong>kernel791</strong> with <strong>kernel</strong>. Also you need to add desired vga mode again. So your menu.lst should look like:</p><div class=highlight><div style=-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cfg data-lang=cfg><span style=display:flex><span><span style=color:#7d9029>default</span><span style=color:#666>=</span><span style=color:#ba2121>0</span>
+</span></span><span style=display:flex><span><span style=color:#7d9029>timeout</span><span style=color:#666>=</span><span style=color:#ba2121>6</span>
+</span></span><span style=display:flex><span><span style=color:#7d9029>splashimage</span><span style=color:#666>=</span><span style=color:#ba2121>/grub/android-x86.xpm.gz</span>
+</span></span><span style=display:flex><span><span style=color:#7d9029>root (hd0,0)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#7d9029>title Remix OS 2016-01-14</span>
+</span></span><span style=display:flex><span><span style=color:#7d9029>kernel /android-2016-01-14/kernel vga</span><span style=color:#666>=</span><span style=color:#ba2121>791 quiet root=/dev/ram0 androidboot.hardware=remix_x86_64 androidboot.selinux=permissive nomodeset SRC=/android-2016-01-14</span>
+</span></span><span style=display:flex><span><span style=color:#7d9029>initrd /android-2016-01-14/initrd.img</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#7d9029>title Remix OS 2016-01-14 (Debug mode)</span>
+</span></span><span style=display:flex><span><span style=color:#7d9029>kernel /android-2016-01-14/kernel vga</span><span style=color:#666>=</span><span style=color:#ba2121>791 root=/dev/ram0 androidboot.hardware=remix_x86_64 androidboot.selinux=permissive nomodeset DEBUG=2 SRC=/android-2016-01-14</span>
+</span></span><span style=display:flex><span><span style=color:#7d9029>initrd /android-2016-01-14/initrd.img</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#7d9029>title Remix OS 2016-01-14 (Debug nomodeset)</span>
+</span></span><span style=display:flex><span><span style=color:#7d9029>kernel /android-2016-01-14/kernel vga</span><span style=color:#666>=</span><span style=color:#ba2121>791 nomodeset root=/dev/ram0 androidboot.hardware=remix_x86_64 androidboot.selinux=permissive nomodeset DEBUG=2 SRC=/android-2016-01-14</span>
+</span></span><span style=display:flex><span><span style=color:#7d9029>initrd /android-2016-01-14/initrd.img</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#7d9029>title Remix OS 2016-01-14 (Debug video</span><span style=color:#666>=</span><span style=color:#ba2121>LVDS-1:d)</span>
+</span></span><span style=display:flex><span><span style=color:#7d9029>kernel /android-2016-01-14/kernel vga</span><span style=color:#666>=</span><span style=color:#ba2121>791 video=LVDS-1:d root=/dev/ram0 androidboot.hardware=remix_x86_64 androidboot.selinux=permissive nomodeset DEBUG=2 SRC=/android-2016-01-14</span>
+</span></span><span style=display:flex><span><span style=color:#7d9029>initrd /android-2016-01-14/initrd.img</span>
+</span></span></code></pre></td></tr></table></div></div><p>Detach VHD and boot your VM.</p><p><a href=https://i0.wp.com/trukhanov.com/wp-content/uploads/2016/01/RemixOS-installbooting.png><img src="https://i0.wp.com/trukhanov.com/wp-content/uploads/2016/01/RemixOS-installbooting.png?resize=300%2C248" alt=RemixOS-installbooting></a></p><p>Happy Remix OS experience!</p><p><strong>Update (17 Oct 2016):</strong> latest versions of RemixOS have Hyper-V support. If you have problems with mouse pointer capture in latest versions you can try following:</p><ol>
+<li>Start Termux terminal</li><li>Get root access with <code>su</code> command</li><li>Stop Hyper-V mouse driver with <code>rmmod hid_hyperv</code> command</li></ol><div class=blog-tags>
+<a href=https://trukhanov.com/tags/Android/>Android</a>&nbsp;
+<a href=https://trukhanov.com/tags/RemixOS/>RemixOS</a>&nbsp;
+</div></article><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname=="localhost")return;var e=document.createElement("script"),t;e.type="text/javascript",e.async=!0,t="trukhanov-com",e.src="//"+t+".disqus.com/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)})()</script>
+<noscript>Please enable JavaScript to view the
+<a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com/ class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div><footer>
+<div class=social-icons>
+</div><div class=container>
+<p class="credits copyright">
+<a href=https://trukhanov.com/about></a>
+&nbsp;&copy;
+2017
+&nbsp;/&nbsp;
+<a href=https://trukhanov.com/>Perpetuum informatio - Never ending IT story</a>
+&nbsp;&ndash;&nbsp;
+<em class="fas fa-moon" id=dark-mode-toggle></em>
+</p><p class="credits theme-by">
+Powered By <a href=https://gohugo.io>Hugo</a>&nbsp;
+Theme
+<a href=https://github.com/matsuyoshi30/harbor>Harbor</a>
+</p></div></footer></body></html>

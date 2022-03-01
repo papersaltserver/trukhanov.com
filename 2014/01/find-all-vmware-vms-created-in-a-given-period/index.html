@@ -1,0 +1,94 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<title>Find all VMWare VMs created in a given period</title><script async src="https://www.googletagmanager.com/gtag/js?id=UA-19900770-2"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","UA-19900770-2")</script>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<link rel=alternate type=application/rss+xml href=https://trukhanov.com/index.xml title="Perpetuum informatio - Never ending IT story">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Find all VMWare VMs created in a given period">
+<meta name=twitter:description content="To find all virtual machines created in a given period use the following SQL script:
+
+
+1
+2
+3
+
+
+select ev.CREATE_TIME, EV.VM_NAME AS OldName  
+from VPX_EVENT EV  
+Where (EV.event_type = 'vim.event.VmDeployedEvent' OR EV.EVENT_TYPE = 'vim.event.VmCreatedEvent' OR EV.EVENT_TYPE = 'vim.event.VMClonedEvent') AND EV.CREATE_TIME >= cast('1.01.2013' AS DATETIME) AND EV.CREATE_TIME <= cast('31.01.2014' AS DATETIME)
+
+
+">
+<link rel=stylesheet href=https://trukhanov.com/fontawesome/css/all.min.css>
+<link crossorigin=anonymous href=/css/styles.min.css integrity rel="preload stylesheet" as=style>
+<link rel=stylesheet href=https://trukhanov.com/css/custom.css>
+<link id=dark-mode-theme crossorigin=anonymous href=/css/dark.min.css integrity rel="preload stylesheet" as=style>
+<script>var darkTheme=document.getElementById("dark-mode-theme"),storedTheme=localStorage.getItem("dark-mode-storage");storedTheme==="dark"?darkTheme.disabled=!1:storedTheme==="light"&&(darkTheme.disabled=!0)</script>
+<script defer crossorigin=anonymous src=/js/theme.js integrity></script>
+<script defer crossorigin=anonymous src=/js/instantpage.min.js integrity></script><meta name=generator content="Hugo 0.93.0">
+</head><body>
+<header>
+<nav class=navbar>
+<div class=nav>
+<ul class=nav-links>
+</ul></div></nav><div class=intro-header>
+<div class=container>
+<div class=post-heading>
+<h1>
+Find all VMWare VMs created in a given period
+</h1><span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Jan 15, 2014
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Uncategorized/>Uncategorized</a>&nbsp;
+</span>
+</div></div></div></header><div class=container role=main>
+<article class=article class=blog-post>
+<p>To find all virtual machines created in a given period use the following SQL script:</p><div class=highlight><div style=-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:green;font-weight:700>select</span><span style=color:#bbb> </span>ev.CREATE_TIME,<span style=color:#bbb> </span>EV.VM_NAME<span style=color:#bbb> </span><span style=color:green;font-weight:700>AS</span><span style=color:#bbb> </span>OldName<span style=color:#bbb>  
+</span></span></span><span style=display:flex><span><span style=color:#bbb></span><span style=color:green;font-weight:700>from</span><span style=color:#bbb> </span>VPX_EVENT<span style=color:#bbb> </span>EV<span style=color:#bbb>  
+</span></span></span><span style=display:flex><span><span style=color:#bbb></span><span style=color:green;font-weight:700>Where</span><span style=color:#bbb> </span>(EV.event_type<span style=color:#bbb> </span><span style=color:#666>=</span><span style=color:#bbb> </span><span style=color:#ba2121>&#39;vim.event.VmDeployedEvent&#39;</span><span style=color:#bbb> </span><span style=color:green;font-weight:700>OR</span><span style=color:#bbb> </span>EV.EVENT_TYPE<span style=color:#bbb> </span><span style=color:#666>=</span><span style=color:#bbb> </span><span style=color:#ba2121>&#39;vim.event.VmCreatedEvent&#39;</span><span style=color:#bbb> </span><span style=color:green;font-weight:700>OR</span><span style=color:#bbb> </span>EV.EVENT_TYPE<span style=color:#bbb> </span><span style=color:#666>=</span><span style=color:#bbb> </span><span style=color:#ba2121>&#39;vim.event.VMClonedEvent&#39;</span>)<span style=color:#bbb> </span><span style=color:green;font-weight:700>AND</span><span style=color:#bbb> </span>EV.CREATE_TIME<span style=color:#bbb> </span><span style=color:#666>&gt;=</span><span style=color:#bbb> </span><span style=color:green;font-weight:700>cast</span>(<span style=color:#ba2121>&#39;1.01.2013&#39;</span><span style=color:#bbb> </span><span style=color:green;font-weight:700>AS</span><span style=color:#bbb> </span>DATETIME)<span style=color:#bbb> </span><span style=color:green;font-weight:700>AND</span><span style=color:#bbb> </span>EV.CREATE_TIME<span style=color:#bbb> </span><span style=color:#666>&lt;=</span><span style=color:#bbb> </span><span style=color:green;font-weight:700>cast</span>(<span style=color:#ba2121>&#39;31.01.2014&#39;</span><span style=color:#bbb> </span><span style=color:green;font-weight:700>AS</span><span style=color:#bbb> </span>DATETIME)<span style=color:#bbb>
+</span></span></span></code></pre></td></tr></table></div></div><p>Output of this script will show all created VMs including deleted ones. To show only existing virtual machines you can use following SQL script:</p><div class=highlight><div style=-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:green;font-weight:700>select</span><span style=color:#bbb> </span>EV.CREATE_TIME,<span style=color:#bbb> </span>EV.VM_NAME<span style=color:#bbb> </span><span style=color:green;font-weight:700>AS</span><span style=color:#bbb> </span>OldName,<span style=color:#bbb> </span>INF.NAME<span style=color:#bbb> </span><span style=color:green;font-weight:700>AS</span><span style=color:#bbb> </span>CurrName<span style=color:#bbb>  
+</span></span></span><span style=display:flex><span><span style=color:#bbb></span><span style=color:green;font-weight:700>from</span><span style=color:#bbb> </span>VPX_EVENT<span style=color:#bbb> </span>EV,<span style=color:#bbb> </span>VPX_VM_CONFIG_INFO<span style=color:#bbb> </span>INF<span style=color:#bbb>  
+</span></span></span><span style=display:flex><span><span style=color:#bbb></span><span style=color:green;font-weight:700>Where</span><span style=color:#bbb> </span>EV.VM_ID<span style=color:#666>=</span>INF.ID<span style=color:#bbb> </span><span style=color:green;font-weight:700>AND</span><span style=color:#bbb> </span>(EV.event_type<span style=color:#bbb> </span><span style=color:#666>=</span><span style=color:#bbb> </span><span style=color:#ba2121>&#39;vim.event.VmDeployedEvent&#39;</span><span style=color:#bbb> </span><span style=color:green;font-weight:700>OR</span><span style=color:#bbb> </span>EV.EVENT_TYPE<span style=color:#bbb> </span><span style=color:#666>=</span><span style=color:#bbb> </span><span style=color:#ba2121>&#39;vim.event.VmCreatedEvent&#39;</span><span style=color:#bbb> </span><span style=color:green;font-weight:700>OR</span><span style=color:#bbb> </span>EV.EVENT_TYPE<span style=color:#bbb> </span><span style=color:#666>=</span><span style=color:#bbb> </span><span style=color:#ba2121>&#39;vim.event.VMClonedEvent&#39;</span>)<span style=color:#bbb> </span><span style=color:green;font-weight:700>AND</span><span style=color:#bbb> </span>EV.CREATE_TIME<span style=color:#bbb> </span><span style=color:#666>&gt;=</span><span style=color:#bbb> </span><span style=color:green;font-weight:700>cast</span>(<span style=color:#ba2121>&#39;01.01.2013&#39;</span><span style=color:#bbb> </span><span style=color:green;font-weight:700>AS</span><span style=color:#bbb> </span>DATETIME)<span style=color:#bbb>
+</span></span></span></code></pre></td></tr></table></div></div><p>As you can see it can help you to find renamed virtual machines as well. One of the biggest problem of this script is that it relies on events, which can be deleted by time when you run script. Unfortunately it is impossible to find the same data any other way. The only other solution is to use custom fields, which have to be created to the moment of need.</p><div class=highlight><div style=-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:green;font-weight:700>select</span><span style=color:#bbb> </span>ev.CREATE_TIME,<span style=color:#bbb> </span>EV.VM_NAME<span style=color:#bbb> </span><span style=color:green;font-weight:700>AS</span><span style=color:#bbb> </span>OldName<span style=color:#bbb>  
+</span></span></span><span style=display:flex><span><span style=color:#bbb></span><span style=color:green;font-weight:700>from</span><span style=color:#bbb> </span>VPX_EVENT<span style=color:#bbb> </span>EV<span style=color:#bbb>  
+</span></span></span><span style=display:flex><span><span style=color:#bbb></span><span style=color:green;font-weight:700>Where</span><span style=color:#bbb> </span>(EV.event_type<span style=color:#bbb> </span><span style=color:#666>=</span><span style=color:#bbb> </span><span style=color:#ba2121>&#39;vim.event.VmDeployedEvent&#39;</span><span style=color:#bbb> </span><span style=color:green;font-weight:700>OR</span><span style=color:#bbb> </span>EV.EVENT_TYPE<span style=color:#bbb> </span><span style=color:#666>=</span><span style=color:#bbb> </span><span style=color:#ba2121>&#39;vim.event.VmCreatedEvent&#39;</span><span style=color:#bbb> </span><span style=color:green;font-weight:700>OR</span><span style=color:#bbb> </span>EV.EVENT_TYPE<span style=color:#bbb> </span><span style=color:#666>=</span><span style=color:#bbb> </span><span style=color:#ba2121>&#39;vim.event.VMClonedEvent&#39;</span>)<span style=color:#bbb> </span><span style=color:green;font-weight:700>AND</span><span style=color:#bbb> </span>EV.CREATE_TIME<span style=color:#bbb> </span><span style=color:#666>&gt;=</span><span style=color:#bbb> </span><span style=color:green;font-weight:700>cast</span>(<span style=color:#ba2121>&#39;01.01.2013&#39;</span><span style=color:#bbb> </span><span style=color:green;font-weight:700>AS</span><span style=color:#bbb> </span>DATETIME)<span style=color:#bbb> </span><span style=color:green;font-weight:700>AND</span><span style=color:#bbb> </span>EV.CREATE_TIME<span style=color:#bbb> </span><span style=color:#666>&lt;=</span><span style=color:#bbb> </span><span style=color:green;font-weight:700>cast</span>(<span style=color:#ba2121>&#39;31.01.2014&#39;</span><span style=color:#bbb> </span><span style=color:green;font-weight:700>AS</span><span style=color:#bbb> </span>DATETIME)<span style=color:#bbb>
+</span></span></span></code></pre></td></tr></table></div></div></article><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname=="localhost")return;var e=document.createElement("script"),t;e.type="text/javascript",e.async=!0,t="trukhanov-com",e.src="//"+t+".disqus.com/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)})()</script>
+<noscript>Please enable JavaScript to view the
+<a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com/ class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div><footer>
+<div class=social-icons>
+</div><div class=container>
+<p class="credits copyright">
+<a href=https://trukhanov.com/about></a>
+&nbsp;&copy;
+2017
+&nbsp;/&nbsp;
+<a href=https://trukhanov.com/>Perpetuum informatio - Never ending IT story</a>
+&nbsp;&ndash;&nbsp;
+<em class="fas fa-moon" id=dark-mode-toggle></em>
+</p><p class="credits theme-by">
+Powered By <a href=https://gohugo.io>Hugo</a>&nbsp;
+Theme
+<a href=https://github.com/matsuyoshi30/harbor>Harbor</a>
+</p></div></footer></body></html>

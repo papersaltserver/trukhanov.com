@@ -1,0 +1,65 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<title>TSM ANS0106E error on backup or dsmc run</title><script async src="https://www.googletagmanager.com/gtag/js?id=UA-19900770-2"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","UA-19900770-2")</script>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<link rel=alternate type=application/rss+xml href=https://trukhanov.com/index.xml title="Perpetuum informatio - Never ending IT story">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="TSM ANS0106E error on backup or dsmc run">
+<meta name=twitter:description content="Recently we’ve found that one of our TSM servers stopped to back up all virtual machines. After examination of dsmerror.log files we’ve found strange messages:
+
+03/20/2015 09:48:42 ANS0106E Message index not found for message 2252.
+03/20/2015 09:49:01 ANS0106E Message index not found for message 14320.
+03/20/2015 09:49:01 ANS0106E Message index not found for message 14180.
+
+And so on.">
+<link rel=stylesheet href=https://trukhanov.com/fontawesome/css/all.min.css>
+<link crossorigin=anonymous href=/css/styles.min.css integrity rel="preload stylesheet" as=style>
+<link rel=stylesheet href=https://trukhanov.com/css/custom.css>
+<link id=dark-mode-theme crossorigin=anonymous href=/css/dark.min.css integrity rel="preload stylesheet" as=style>
+<script>var darkTheme=document.getElementById("dark-mode-theme"),storedTheme=localStorage.getItem("dark-mode-storage");storedTheme==="dark"?darkTheme.disabled=!1:storedTheme==="light"&&(darkTheme.disabled=!0)</script>
+<script defer crossorigin=anonymous src=/js/theme.js integrity></script>
+<script defer crossorigin=anonymous src=/js/instantpage.min.js integrity></script><meta name=generator content="Hugo 0.93.0">
+</head><body>
+<header>
+<nav class=navbar>
+<div class=nav>
+<ul class=nav-links>
+</ul></div></nav><div class=intro-header>
+<div class=container>
+<div class=post-heading>
+<h1>
+TSM ANS0106E error on backup or dsmc run
+</h1><span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Mar 30, 2015
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/TSM/>TSM</a>&nbsp;
+</span>
+</div></div></div></header><div class=container role=main>
+<article class=article class=blog-post>
+<p>Recently we’ve found that one of our TSM servers stopped to back up all virtual machines. After examination of dsmerror.log files we’ve found strange messages:</p><blockquote>
+<p>03/20/2015 09:48:42 ANS0106E Message index not found for message 2252.<br>
+03/20/2015 09:49:01 ANS0106E Message index not found for message 14320.<br>
+03/20/2015 09:49:01 ANS0106E Message index not found for message 14180.</p></blockquote><p>And so on.</p><p>After quick search we’ve found official <a href="http://www-01.ibm.com/support/docview.wss?uid=swg21590949" title="ANS0106E Message index not found for message xxxxx">IBM article about this error</a></p><p>This article suggests you to update or re-install your Backup Archive Client, installed on the TSM server. We’ve tried that with different versions of client with no result. All clients give the same error: ANS0106E.</p><p>After that we’ve started to analyze dsmc.exe process wint ProcessExplorer and found strange thing, that this process have open handles to <code>C:\Program Files\Tivoli\TSM\server\tsmdiag</code> and not <code>C:\Program Files\Tivoli\TSM\baclient</code> where we’ve actually installed our BA Client.</p><p>So the problem was, that tsmdiag.exe utility set environment variables DSM_CONFIG and DSM_DIR, which affect Backup Archive Client behavior. So to resolve this problem you need to change mentioned environment variables or copy dscenu.txt file from your BAClient folder to tsmdiag folder.</p><div class=blog-tags>
+<a href=https://trukhanov.com/tags/TSM/>TSM</a>&nbsp;
+</div></article><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname=="localhost")return;var e=document.createElement("script"),t;e.type="text/javascript",e.async=!0,t="trukhanov-com",e.src="//"+t+".disqus.com/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)})()</script>
+<noscript>Please enable JavaScript to view the
+<a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com/ class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div><footer>
+<div class=social-icons>
+</div><div class=container>
+<p class="credits copyright">
+<a href=https://trukhanov.com/about></a>
+&nbsp;&copy;
+2017
+&nbsp;/&nbsp;
+<a href=https://trukhanov.com/>Perpetuum informatio - Never ending IT story</a>
+&nbsp;&ndash;&nbsp;
+<em class="fas fa-moon" id=dark-mode-toggle></em>
+</p><p class="credits theme-by">
+Powered By <a href=https://gohugo.io>Hugo</a>&nbsp;
+Theme
+<a href=https://github.com/matsuyoshi30/harbor>Harbor</a>
+</p></div></footer></body></html>

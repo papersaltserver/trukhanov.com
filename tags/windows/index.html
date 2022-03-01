@@ -1,0 +1,107 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<title>windows</title><script async src="https://www.googletagmanager.com/gtag/js?id=UA-19900770-2"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","UA-19900770-2")</script>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<link rel=alternate type=application/rss+xml href=https://trukhanov.com/index.xml title="Perpetuum informatio - Never ending IT story">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="windows">
+<meta name=twitter:description content>
+<link rel=stylesheet href=https://trukhanov.com/fontawesome/css/all.min.css>
+<link crossorigin=anonymous href=/css/styles.min.css integrity rel="preload stylesheet" as=style>
+<link rel=stylesheet href=https://trukhanov.com/css/custom.css>
+<link id=dark-mode-theme crossorigin=anonymous href=/css/dark.min.css integrity rel="preload stylesheet" as=style>
+<script>var darkTheme=document.getElementById("dark-mode-theme"),storedTheme=localStorage.getItem("dark-mode-storage");storedTheme==="dark"?darkTheme.disabled=!1:storedTheme==="light"&&(darkTheme.disabled=!0)</script>
+<script defer crossorigin=anonymous src=/js/theme.js integrity></script>
+<script defer crossorigin=anonymous src=/js/instantpage.min.js integrity></script><meta name=generator content="Hugo 0.93.0">
+</head><body>
+<header>
+<nav class=navbar>
+<div class=nav>
+<ul class=nav-links>
+</ul></div></nav><div class=intro-header>
+<div class=container>
+<div class=tags-heading>
+<h1>
+windows
+</h1></div></div></div></header><div class=container role=main>
+<div class=posts-list>
+<article class=post-preview>
+<a href=https://trukhanov.com/2017/06/script-for-windows-storage-audit/>
+<h2 class=post-title>Script for Windows storage audit</h2></a>
+<div class=post-entry>
+<p><p>I’ve created PowerShell script to collect all important information about windows physical disks, partitions and volumes (logical disks) and its connections.</p></p><a href=https://trukhanov.com/2017/06/script-for-windows-storage-audit/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Jun 17, 2017
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Uncategorized/>Uncategorized</a>&nbsp;
+</span>
+</div></article><article class=post-preview>
+<a href=https://trukhanov.com/2017/06/windows-storage-hierarchy-explained/>
+<h2 class=post-title>Windows storage hierarchy explained</h2></a>
+<div class=post-entry>
+<p><p>Quick cheat sheet:</p><ol>
+<li>Physical disk, represented by Win32_DiskDrive and MSFT_Disk WMI classes. This is hardware presented to your computer. It is HDD, SSD, FC LUN or iSCSI LUN.</li><li>Partition, represented by Win32_DiskPartition and MSFT_Partition WMI classes. Partitions are walls that transforming your physical space into rooms, which later can be used to store your data. Physical disk can have 0 or more partitions.</li><li>Volume, represented by Win32_Volume and MSFT_Volume WMI classes. Volumes are named spaces, from abstract rooms you get living room, kitchen and bedrooms. You format room to make it “named room”. Or in other words, you format partition to some file system, i.e. NTFS, FAT or ReFS. Volumes can store data and provide access to it. One partition can have 0 or 1 volume. When partition has 0 volume, in most cases this means that there is no data accessible by user.</li></ol></p><a href=https://trukhanov.com/2017/06/windows-storage-hierarchy-explained/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Jun 17, 2017
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Windows-Server/>Windows Server</a>&nbsp;
+</span>
+</div></article><article class=post-preview>
+<a href=https://trukhanov.com/2016/12/the-update-is-not-applicable-to-your-computer/>
+<h2 class=post-title>“The update is not applicable to your computer”</h2></a>
+<div class=post-entry>
+<p>Recently I’ve needed to apply 2 patches to our Windows 2008 R2. But both patches show me error “The update is not applicable to your computer”. But I knew for sure, that these updates were applicable, because installed file’s version was lower than the one contained in hotfixes.
+In Setup log I’ve got “Windows update could not be installed because of error 2149842967” error.
+The problem was that someone disabled Windows Modules Installer service on this machine, which is TrustedInstaller.</p><a href=https://trukhanov.com/2016/12/the-update-is-not-applicable-to-your-computer/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Dec 2, 2016
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Windows-Server/>Windows Server</a>&nbsp;
+</span>
+</div></article><article class=post-preview>
+<a href=https://trukhanov.com/2014/02/wmic-exception-occured/>
+<h2 class=post-title>Wmic exception occured</h2></a>
+<div class=post-entry>
+<p><p>Some time ago we have faced problem that our script which calls wmic to get some values stopped to work. After a short research we have found that on some servers wmic utility stopped to work, showing exception every time we run any command:</p><blockquote>
+<p>wmic os get caption<br>
+ERROR:<br>
+Description = Exception occurred.</p></blockquote></p><a href=https://trukhanov.com/2014/02/wmic-exception-occured/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Feb 6, 2014
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Windows-Server/>Windows Server</a>&nbsp;
+</span>
+</div></article><article class=post-preview>
+<a href=https://trukhanov.com/2013/09/error-1602-or-1618-during-install-of-any-msi-packet/>
+<h2 class=post-title>Error 1602 or 1618 during install of any msi packet</h2></a>
+<div class=post-entry>
+<p><p>Recently we’ve got error installing driver on our Windows 2008 R2 server. It does not provide any specific error dialog, just constantly showing “Please wait while the application is preparing for the first use”. After you press Cancel, it gives you error message saying that installation could not be completed because other installation is in progress. The only diagnostic message in the Application log was EventID 1033 form MsiInstaller with message <code>Installation success or error status: 1602</code> or <code>Installation success or error status: 1618</code>. Which obviously not helpful. Internet search revealed, that this message is quite common and can be caused by many things.</p></p><a href=https://trukhanov.com/2013/09/error-1602-or-1618-during-install-of-any-msi-packet/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Sep 25, 2013
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Uncategorized/>Uncategorized</a>&nbsp;
+</span>
+</div></article></div></div><footer>
+<div class=social-icons>
+</div><div class=container>
+<p class="credits copyright">
+<a href=https://trukhanov.com/about></a>
+&nbsp;&copy;
+2017
+&nbsp;/&nbsp;
+<a href=https://trukhanov.com/>Perpetuum informatio - Never ending IT story</a>
+&nbsp;&ndash;&nbsp;
+<em class="fas fa-moon" id=dark-mode-toggle></em>
+</p><p class="credits theme-by">
+Powered By <a href=https://gohugo.io>Hugo</a>&nbsp;
+Theme
+<a href=https://github.com/matsuyoshi30/harbor>Harbor</a>
+</p></div></footer></body></html>

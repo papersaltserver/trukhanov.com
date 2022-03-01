@@ -1,0 +1,70 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<title>Active Directory</title><script async src="https://www.googletagmanager.com/gtag/js?id=UA-19900770-2"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","UA-19900770-2")</script>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<link rel=alternate type=application/rss+xml href=https://trukhanov.com/index.xml title="Perpetuum informatio - Never ending IT story">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Active Directory">
+<meta name=twitter:description content>
+<link rel=stylesheet href=https://trukhanov.com/fontawesome/css/all.min.css>
+<link crossorigin=anonymous href=/css/styles.min.css integrity rel="preload stylesheet" as=style>
+<link rel=stylesheet href=https://trukhanov.com/css/custom.css>
+<link id=dark-mode-theme crossorigin=anonymous href=/css/dark.min.css integrity rel="preload stylesheet" as=style>
+<script>var darkTheme=document.getElementById("dark-mode-theme"),storedTheme=localStorage.getItem("dark-mode-storage");storedTheme==="dark"?darkTheme.disabled=!1:storedTheme==="light"&&(darkTheme.disabled=!0)</script>
+<script defer crossorigin=anonymous src=/js/theme.js integrity></script>
+<script defer crossorigin=anonymous src=/js/instantpage.min.js integrity></script><meta name=generator content="Hugo 0.93.0">
+</head><body>
+<header>
+<nav class=navbar>
+<div class=nav>
+<ul class=nav-links>
+</ul></div></nav><div class=intro-header>
+<div class=container>
+<div class=tags-heading>
+<h1>
+Active Directory
+</h1></div></div></div></header><div class=container role=main>
+<div class=posts-list>
+<article class=post-preview>
+<a href=https://trukhanov.com/2015/09/limit-group-policy-only-to-client-os/>
+<h2 class=post-title>Limit group policy only to client OS</h2></a>
+<div class=post-entry>
+<p><p>Sometimes you want to apply your policy to every client PC in many OUs. To do such you can use WMI filter. This is especially useful in messy AD structures, where is no dedicated OU for client computer objects.</p><pre tabindex=0><code>Namespace: root\CIMv2
+Query: select * from Win32_OperatingSystem where ProductType=&#34;1&#34;
+</code></pre></p><a href=https://trukhanov.com/2015/09/limit-group-policy-only-to-client-os/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Sep 3, 2015
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Active-Directory/>Active Directory</a>&nbsp;
+</span>
+</div></article><article class=post-preview>
+<a href=https://trukhanov.com/2015/09/cant-access-any-outlook-tabs-on-ribbon-except-enterprise-vault/>
+<h2 class=post-title>Can’t access any Outlook tabs on ribbon except Enterprise Vault</h2></a>
+<div class=post-entry>
+<p><p>Recently one of our customers installed Microsoft Dynamics CRM Outlook add-in and discovered that after this action Microsoft Outlook became absolutely useless, because after start of the program there are no other tabs except Enterprise Vault, which is also used by this customer. Little research showed that the root of the problem is in some components of earlier version of Microsoft Office. To fix problem you need to delete following registry key:</p><p><code>HKEY_CLASSES_ROOT\TypeLib\{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}\2.4</code></p></p><a href=https://trukhanov.com/2015/09/cant-access-any-outlook-tabs-on-ribbon-except-enterprise-vault/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Sep 3, 2015
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Active-Directory/>Active Directory</a>&nbsp;
+</span>
+</div></article></div></div><footer>
+<div class=social-icons>
+</div><div class=container>
+<p class="credits copyright">
+<a href=https://trukhanov.com/about></a>
+&nbsp;&copy;
+2017
+&nbsp;/&nbsp;
+<a href=https://trukhanov.com/>Perpetuum informatio - Never ending IT story</a>
+&nbsp;&ndash;&nbsp;
+<em class="fas fa-moon" id=dark-mode-toggle></em>
+</p><p class="credits theme-by">
+Powered By <a href=https://gohugo.io>Hugo</a>&nbsp;
+Theme
+<a href=https://github.com/matsuyoshi30/harbor>Harbor</a>
+</p></div></footer></body></html>

@@ -1,0 +1,63 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<title>Error 1602 or 1618 during install of any msi packet</title><script async src="https://www.googletagmanager.com/gtag/js?id=UA-19900770-2"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","UA-19900770-2")</script>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<link rel=alternate type=application/rss+xml href=https://trukhanov.com/index.xml title="Perpetuum informatio - Never ending IT story">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Error 1602 or 1618 during install of any msi packet">
+<meta name=twitter:description content="Recently we’ve got error installing driver on our Windows 2008 R2 server. It does not provide any specific error dialog, just constantly showing “Please wait while the application is preparing for the first use”. After you press Cancel, it gives you error message saying that installation could not be completed because other installation is in progress. The only diagnostic message in the Application log was EventID 1033 form MsiInstaller with message Installation success or error status: 1602 or Installation success or error status: 1618. Which obviously not helpful. Internet search revealed, that this message is quite common and can be caused by many things.">
+<link rel=stylesheet href=https://trukhanov.com/fontawesome/css/all.min.css>
+<link crossorigin=anonymous href=/css/styles.min.css integrity rel="preload stylesheet" as=style>
+<link rel=stylesheet href=https://trukhanov.com/css/custom.css>
+<link id=dark-mode-theme crossorigin=anonymous href=/css/dark.min.css integrity rel="preload stylesheet" as=style>
+<script>var darkTheme=document.getElementById("dark-mode-theme"),storedTheme=localStorage.getItem("dark-mode-storage");storedTheme==="dark"?darkTheme.disabled=!1:storedTheme==="light"&&(darkTheme.disabled=!0)</script>
+<script defer crossorigin=anonymous src=/js/theme.js integrity></script>
+<script defer crossorigin=anonymous src=/js/instantpage.min.js integrity></script><meta name=generator content="Hugo 0.93.0">
+</head><body>
+<header>
+<nav class=navbar>
+<div class=nav>
+<ul class=nav-links>
+</ul></div></nav><div class=intro-header>
+<div class=container>
+<div class=post-heading>
+<h1>
+Error 1602 or 1618 during install of any msi packet
+</h1><span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Sep 25, 2013
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Uncategorized/>Uncategorized</a>&nbsp;
+</span>
+</div></div></div></header><div class=container role=main>
+<article class=article class=blog-post>
+<p>Recently we’ve got error installing driver on our Windows 2008 R2 server. It does not provide any specific error dialog, just constantly showing “Please wait while the application is preparing for the first use”. After you press Cancel, it gives you error message saying that installation could not be completed because other installation is in progress. The only diagnostic message in the Application log was EventID 1033 form MsiInstaller with message <code>Installation success or error status: 1602</code> or <code>Installation success or error status: 1618</code>. Which obviously not helpful. Internet search revealed, that this message is quite common and can be caused by many things.</p><p>Also I have found that installer created MSI*.log which contained the same diagnostic message about status 1602 or 1618, but it also contained another message <code>Failed to grab execution mutex. System error 258</code> which also does not look helpful, but quick search for this string found <a href=http://community.flexerasoftware.com/showthread.php?192289-Problems-with-windows-server-2008-r2-and-terminalserver>forum conversation</a>.<br>
+The problem is that our server has Remote Desktop Session Host (Terminal services), which by default forbids chained installations. Chained installation is the method of installation when one msi file calls another one to install some prerequisites. Remote Desktop Session Host can be used by many users, which can try to install many MSI files simultaneously, which potentially can cause some conflicts and broken installations, so Remote Desktop Session Host by default permits only one installation at a time, all other installations are queued for sequential installations. Of cause it is not possible for chained installation, when you first MSI is running and is waiting subsequent msi file to complete, to queue subsequent installations. To fix this issue you need to use Group Policy, either local or domain.<br>
+The required setting is:<br>
+Computer Configuration->Administrative Templates->Windows Components->Remote Desktop Services->Remote Desktop Session Host->Application Compatibility->Turn off Windows Installer RDS Compatibility<br>
+Just set it to “Enabled” and run <code>gpupdate /force</code>, and rerun your installation.</p><div class=blog-tags>
+<a href=https://trukhanov.com/tags/EventID-1033/>EventID 1033</a>&nbsp;
+<a href=https://trukhanov.com/tags/msi/>msi</a>&nbsp;
+<a href=https://trukhanov.com/tags/Remote-Desktop-Session-Host/>Remote Desktop Session Host</a>&nbsp;
+<a href=https://trukhanov.com/tags/windows/>windows</a>&nbsp;
+</div></article><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname=="localhost")return;var e=document.createElement("script"),t;e.type="text/javascript",e.async=!0,t="trukhanov-com",e.src="//"+t+".disqus.com/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)})()</script>
+<noscript>Please enable JavaScript to view the
+<a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com/ class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div><footer>
+<div class=social-icons>
+</div><div class=container>
+<p class="credits copyright">
+<a href=https://trukhanov.com/about></a>
+&nbsp;&copy;
+2017
+&nbsp;/&nbsp;
+<a href=https://trukhanov.com/>Perpetuum informatio - Never ending IT story</a>
+&nbsp;&ndash;&nbsp;
+<em class="fas fa-moon" id=dark-mode-toggle></em>
+</p><p class="credits theme-by">
+Powered By <a href=https://gohugo.io>Hugo</a>&nbsp;
+Theme
+<a href=https://github.com/matsuyoshi30/harbor>Harbor</a>
+</p></div></footer></body></html>

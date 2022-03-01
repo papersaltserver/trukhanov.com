@@ -1,0 +1,302 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<title>Posts</title><script async src="https://www.googletagmanager.com/gtag/js?id=UA-19900770-2"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","UA-19900770-2")</script>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<link rel=alternate type=application/rss+xml href=https://trukhanov.com/index.xml title="Perpetuum informatio - Never ending IT story">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Posts">
+<meta name=twitter:description content>
+<link rel=stylesheet href=https://trukhanov.com/fontawesome/css/all.min.css>
+<link crossorigin=anonymous href=/css/styles.min.css integrity rel="preload stylesheet" as=style>
+<link rel=stylesheet href=https://trukhanov.com/css/custom.css>
+<link id=dark-mode-theme crossorigin=anonymous href=/css/dark.min.css integrity rel="preload stylesheet" as=style>
+<script>var darkTheme=document.getElementById("dark-mode-theme"),storedTheme=localStorage.getItem("dark-mode-storage");storedTheme==="dark"?darkTheme.disabled=!1:storedTheme==="light"&&(darkTheme.disabled=!0)</script>
+<script defer crossorigin=anonymous src=/js/theme.js integrity></script>
+<script defer crossorigin=anonymous src=/js/instantpage.min.js integrity></script><meta name=generator content="Hugo 0.93.0">
+</head><body>
+<header>
+<nav class=navbar>
+<div class=nav>
+<ul class=nav-links>
+</ul></div></nav><div class=intro-header>
+<div class=container>
+<div class=post-heading>
+<h1>
+Posts
+</h1><span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Oct 3, 2017
+</span>
+</div></div></div></header><div class=container role=main>
+<div class=posts-list>
+<article class=post-preview>
+<a href=https://trukhanov.com/2017/10/association-between-virtual-ethernet-and-virtual-switch/>
+<h2 class=post-title>Association between virtual ethernet and virtual switch</h2></a>
+<div class=post-entry>
+<p><p>You’ve just created couple of internal network switches in your Hyper-V Manager. Or you’ve just installed Docker for Windows and played with it a little. Now want to create NAT to allow your fresh new containers and/or virtual machines to have access to the Internet. Unfortunately there is no simple way to say which of the HNS Internal NIC adapters associated with proper vSwitch.</p></p><a href=https://trukhanov.com/2017/10/association-between-virtual-ethernet-and-virtual-switch/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Oct 3, 2017
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Uncategorized/>Uncategorized</a>&nbsp;
+</span>
+</div></article><article class=post-preview>
+<a href=https://trukhanov.com/2017/06/script-for-windows-storage-audit/>
+<h2 class=post-title>Script for Windows storage audit</h2></a>
+<div class=post-entry>
+<p><p>I’ve created PowerShell script to collect all important information about windows physical disks, partitions and volumes (logical disks) and its connections.</p></p><a href=https://trukhanov.com/2017/06/script-for-windows-storage-audit/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Jun 17, 2017
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Uncategorized/>Uncategorized</a>&nbsp;
+</span>
+</div></article><article class=post-preview>
+<a href=https://trukhanov.com/2017/06/windows-storage-hierarchy-explained/>
+<h2 class=post-title>Windows storage hierarchy explained</h2></a>
+<div class=post-entry>
+<p><p>Quick cheat sheet:</p><ol>
+<li>Physical disk, represented by Win32_DiskDrive and MSFT_Disk WMI classes. This is hardware presented to your computer. It is HDD, SSD, FC LUN or iSCSI LUN.</li><li>Partition, represented by Win32_DiskPartition and MSFT_Partition WMI classes. Partitions are walls that transforming your physical space into rooms, which later can be used to store your data. Physical disk can have 0 or more partitions.</li><li>Volume, represented by Win32_Volume and MSFT_Volume WMI classes. Volumes are named spaces, from abstract rooms you get living room, kitchen and bedrooms. You format room to make it “named room”. Or in other words, you format partition to some file system, i.e. NTFS, FAT or ReFS. Volumes can store data and provide access to it. One partition can have 0 or 1 volume. When partition has 0 volume, in most cases this means that there is no data accessible by user.</li></ol></p><a href=https://trukhanov.com/2017/06/windows-storage-hierarchy-explained/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Jun 17, 2017
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Windows-Server/>Windows Server</a>&nbsp;
+</span>
+</div></article><article class=post-preview>
+<a href=https://trukhanov.com/2016/12/the-update-is-not-applicable-to-your-computer/>
+<h2 class=post-title>“The update is not applicable to your computer”</h2></a>
+<div class=post-entry>
+<p>Recently I’ve needed to apply 2 patches to our Windows 2008 R2. But both patches show me error “The update is not applicable to your computer”. But I knew for sure, that these updates were applicable, because installed file’s version was lower than the one contained in hotfixes.
+In Setup log I’ve got “Windows update could not be installed because of error 2149842967” error.
+The problem was that someone disabled Windows Modules Installer service on this machine, which is TrustedInstaller.</p><a href=https://trukhanov.com/2016/12/the-update-is-not-applicable-to-your-computer/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Dec 2, 2016
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Windows-Server/>Windows Server</a>&nbsp;
+</span>
+</div></article><article class=post-preview>
+<a href=https://trukhanov.com/2016/01/install-remixos-on-hyper-v-virtual-machine/>
+<h2 class=post-title>Install RemixOS on Hyper-V virtual machine</h2></a>
+<div class=post-entry>
+<p><p>Sometimes you just need quickly deploy Android x86 server in your production environment using Microsoft Hyper-V virtualization. Now you can do it with <a href=http://www.jide.com/en/remixos-for-pc>Remix OS</a>.</p><p>Installation to Hyper-V virtual machine is a bit tricky, but possible.</p></p><a href=https://trukhanov.com/2016/01/install-remixos-on-hyper-v-virtual-machine/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Jan 21, 2016
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Uncategorized/>Uncategorized</a>&nbsp;
+</span>
+</div></article><article class=post-preview>
+<a href=https://trukhanov.com/2015/09/unattended-install-for-microsoft-dynamics-crm-2015-outlook-add-in/>
+<h2 class=post-title>Unattended install for Microsoft Dynamics CRM 2015 Outlook Add-In</h2></a>
+<div class=post-entry>
+<p><p>To make fully unattended install package you need to do following steps:</p><ol>
+<li>
+<p>Download install package: <a href="http://www.microsoft.com/en-us/download/details.aspx?id=45015">http://www.microsoft.com/en-us/download/details.aspx?id=45015</a></p></li><li>
+<p>Extract package content:<br>
+<code>CRM2015-Client-ENU-i386.exe /extract:c:\CRM_TEMP\1\2</code><br>
+Do not remove sub folders 1 and 2 from the path, because we need it later</p></li><li>
+<p>Create Redist folder in c:\CRM_TEMP. Do not put it in the sub folders</p></li></ol></p><a href=https://trukhanov.com/2015/09/unattended-install-for-microsoft-dynamics-crm-2015-outlook-add-in/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Sep 3, 2015
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Uncategorized/>Uncategorized</a>&nbsp;
+</span>
+</div></article><article class=post-preview>
+<a href=https://trukhanov.com/2015/09/limit-group-policy-only-to-client-os/>
+<h2 class=post-title>Limit group policy only to client OS</h2></a>
+<div class=post-entry>
+<p><p>Sometimes you want to apply your policy to every client PC in many OUs. To do such you can use WMI filter. This is especially useful in messy AD structures, where is no dedicated OU for client computer objects.</p><pre tabindex=0><code>Namespace: root\CIMv2
+Query: select * from Win32_OperatingSystem where ProductType=&#34;1&#34;
+</code></pre></p><a href=https://trukhanov.com/2015/09/limit-group-policy-only-to-client-os/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Sep 3, 2015
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Active-Directory/>Active Directory</a>&nbsp;
+</span>
+</div></article><article class=post-preview>
+<a href=https://trukhanov.com/2015/09/cant-access-any-outlook-tabs-on-ribbon-except-enterprise-vault/>
+<h2 class=post-title>Can’t access any Outlook tabs on ribbon except Enterprise Vault</h2></a>
+<div class=post-entry>
+<p><p>Recently one of our customers installed Microsoft Dynamics CRM Outlook add-in and discovered that after this action Microsoft Outlook became absolutely useless, because after start of the program there are no other tabs except Enterprise Vault, which is also used by this customer. Little research showed that the root of the problem is in some components of earlier version of Microsoft Office. To fix problem you need to delete following registry key:</p><p><code>HKEY_CLASSES_ROOT\TypeLib\{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}\2.4</code></p></p><a href=https://trukhanov.com/2015/09/cant-access-any-outlook-tabs-on-ribbon-except-enterprise-vault/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Sep 3, 2015
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Active-Directory/>Active Directory</a>&nbsp;
+</span>
+</div></article><article class=post-preview>
+<a href=https://trukhanov.com/2015/08/random-data-big-file-creation/>
+<h2 class=post-title>Random data big file creation</h2></a>
+<div class=post-entry>
+<p><p>Sometimes you just need a big file. For example to test network speed, of backup speed. And to prevent software of hardware compression you need this file to be absolutely random. Also you do not want to write this file byte by byte, as it can be really slow. Here is my version of powershell script to generate such file:</p></p><a href=https://trukhanov.com/2015/08/random-data-big-file-creation/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Aug 10, 2015
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Windows-Server/>Windows Server</a>&nbsp;
+</span>
+</div></article><article class=post-preview>
+<a href=https://trukhanov.com/2015/07/tmg-2010-and-rpc-server-unavailable/>
+<h2 class=post-title>TMG 2010 and “RPC Server unavailable”</h2></a>
+<div class=post-entry>
+<p><p>Recently I have encountered strange TMG behavior. I have permitted all RPC connections to Domain Controllers with system rule and disabled RPC Filter plus switched off “Enable strict RPC compliance” option. But my WMI requests and any other RPC traffic from TMG servers to internal resources was still blocked.</p></p><a href=https://trukhanov.com/2015/07/tmg-2010-and-rpc-server-unavailable/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Jul 14, 2015
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Uncategorized/>Uncategorized</a>&nbsp;
+</span>
+</div></article><article class=post-preview>
+<a href=https://trukhanov.com/2015/04/backing-up-dag-cluster-with-tsm/>
+<h2 class=post-title>Backing up DAG cluster with TSM</h2></a>
+<div class=post-entry>
+<p><p>There is a problem with DAG cluster backup in TSM. When you create script with /PREFERDAGPASSIVE key, your script return error 464 – nothing to backup. So I’ve created script to analyze Exchange’s databases if there is healthy passive copy of database to backup, so you run backup for the only healthy copy of database and for passive healthy copies of database. If there is nothing to backup than script returns 0.</p></p><a href=https://trukhanov.com/2015/04/backing-up-dag-cluster-with-tsm/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Apr 29, 2015
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/TSM/>TSM</a>&nbsp;
+</span>
+</div></article><article class=post-preview>
+<a href=https://trukhanov.com/2015/04/troubleshooting-pending-schedules-in-tsm/>
+<h2 class=post-title>Troubleshooting Pending schedules in TSM</h2></a>
+<div class=post-entry>
+<p><p>Today we’ve found that one of our servers can make backups manually and works fine with polling mode, but when it is switched to prompting mode then schedule never run. After some investigation we’ve found <a href=http://www.tsmblog.org/tag/tcpclientport/>http://www.tsmblog.org/tag/tcpclientport/</a> because we thought we have a problem with port of CAD.</p></p><a href=https://trukhanov.com/2015/04/troubleshooting-pending-schedules-in-tsm/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Apr 29, 2015
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/TSM/>TSM</a>&nbsp;
+</span>
+</div></article><article class=post-preview>
+<a href=https://trukhanov.com/2015/04/connecting-with-android-boxer-mail-app-to-hotmail-account-over-activesync/>
+<h2 class=post-title>Connecting with android Boxer mail app to hotmail account over ActiveSync</h2></a>
+<div class=post-entry>
+<p><p>By default if you try to connect to any Hotmail e-mail with Boxer app (current version 2.0.0), which is a default in CyanogenOS 12s, it set up your account with IMAP and SMTP. Such setup prevents you from using your calendar and contacts. To fix this you should set up your connection with ActiveSync, but such option is not available by default. To set up it correctly you need to do following steps.</p></p><a href=https://trukhanov.com/2015/04/connecting-with-android-boxer-mail-app-to-hotmail-account-over-activesync/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Apr 27, 2015
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Uncategorized/>Uncategorized</a>&nbsp;
+</span>
+</div></article><article class=post-preview>
+<a href=https://trukhanov.com/2015/04/cisco-any-connect-with-windows-10-build-10061-repairing-vpn-adapter/>
+<h2 class=post-title>Cisco Any Connect with Windows 10 build 10061 Repairing vpn adapter</h2></a>
+<div class=post-entry>
+<p><p>Today our network administrator applied latest patch to Cisco ASA. After that, any new connection with AnyConnect was starting update procedure, which failed every time even after reboot. I’ve uninstalled application and installed the newest version. After that any connection showed:</p><p>Repairing vpn adapter</p></p><a href=https://trukhanov.com/2015/04/cisco-any-connect-with-windows-10-build-10061-repairing-vpn-adapter/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Apr 27, 2015
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Uncategorized/>Uncategorized</a>&nbsp;
+</span>
+</div></article><article class=post-preview>
+<a href=https://trukhanov.com/2015/03/tsm-ans0106e-error-on-backup-or-dsmc-run/>
+<h2 class=post-title>TSM ANS0106E error on backup or dsmc run</h2></a>
+<div class=post-entry>
+<p><p>Recently we’ve found that one of our TSM servers stopped to back up all virtual machines. After examination of dsmerror.log files we’ve found strange messages:</p><blockquote>
+<p>03/20/2015 09:48:42 ANS0106E Message index not found for message 2252.<br>
+03/20/2015 09:49:01 ANS0106E Message index not found for message 14320.<br>
+03/20/2015 09:49:01 ANS0106E Message index not found for message 14180.</p></blockquote><p>And so on.</p></p><a href=https://trukhanov.com/2015/03/tsm-ans0106e-error-on-backup-or-dsmc-run/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Mar 30, 2015
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/TSM/>TSM</a>&nbsp;
+</span>
+</div></article><article class=post-preview>
+<a href=https://trukhanov.com/2014/02/wmic-exception-occured/>
+<h2 class=post-title>Wmic exception occured</h2></a>
+<div class=post-entry>
+<p><p>Some time ago we have faced problem that our script which calls wmic to get some values stopped to work. After a short research we have found that on some servers wmic utility stopped to work, showing exception every time we run any command:</p><blockquote>
+<p>wmic os get caption<br>
+ERROR:<br>
+Description = Exception occurred.</p></blockquote></p><a href=https://trukhanov.com/2014/02/wmic-exception-occured/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Feb 6, 2014
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Windows-Server/>Windows Server</a>&nbsp;
+</span>
+</div></article><article class=post-preview>
+<a href=https://trukhanov.com/2014/01/find-all-vmware-vms-created-in-a-given-period/>
+<h2 class=post-title>Find all VMWare VMs created in a given period</h2></a>
+<div class=post-entry>
+<p><p>To find all virtual machines created in a given period use the following SQL script:</p><div class=highlight><div style=-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:green;font-weight:700>select</span><span style=color:#bbb> </span>ev.CREATE_TIME,<span style=color:#bbb> </span>EV.VM_NAME<span style=color:#bbb> </span><span style=color:green;font-weight:700>AS</span><span style=color:#bbb> </span>OldName<span style=color:#bbb>  
+</span></span></span><span style=display:flex><span><span style=color:#bbb></span><span style=color:green;font-weight:700>from</span><span style=color:#bbb> </span>VPX_EVENT<span style=color:#bbb> </span>EV<span style=color:#bbb>  
+</span></span></span><span style=display:flex><span><span style=color:#bbb></span><span style=color:green;font-weight:700>Where</span><span style=color:#bbb> </span>(EV.event_type<span style=color:#bbb> </span><span style=color:#666>=</span><span style=color:#bbb> </span><span style=color:#ba2121>&#39;vim.event.VmDeployedEvent&#39;</span><span style=color:#bbb> </span><span style=color:green;font-weight:700>OR</span><span style=color:#bbb> </span>EV.EVENT_TYPE<span style=color:#bbb> </span><span style=color:#666>=</span><span style=color:#bbb> </span><span style=color:#ba2121>&#39;vim.event.VmCreatedEvent&#39;</span><span style=color:#bbb> </span><span style=color:green;font-weight:700>OR</span><span style=color:#bbb> </span>EV.EVENT_TYPE<span style=color:#bbb> </span><span style=color:#666>=</span><span style=color:#bbb> </span><span style=color:#ba2121>&#39;vim.event.VMClonedEvent&#39;</span>)<span style=color:#bbb> </span><span style=color:green;font-weight:700>AND</span><span style=color:#bbb> </span>EV.CREATE_TIME<span style=color:#bbb> </span><span style=color:#666>&gt;=</span><span style=color:#bbb> </span><span style=color:green;font-weight:700>cast</span>(<span style=color:#ba2121>&#39;1.01.2013&#39;</span><span style=color:#bbb> </span><span style=color:green;font-weight:700>AS</span><span style=color:#bbb> </span>DATETIME)<span style=color:#bbb> </span><span style=color:green;font-weight:700>AND</span><span style=color:#bbb> </span>EV.CREATE_TIME<span style=color:#bbb> </span><span style=color:#666>&lt;=</span><span style=color:#bbb> </span><span style=color:green;font-weight:700>cast</span>(<span style=color:#ba2121>&#39;31.01.2014&#39;</span><span style=color:#bbb> </span><span style=color:green;font-weight:700>AS</span><span style=color:#bbb> </span>DATETIME)<span style=color:#bbb>
+</span></span></span></code></pre></td></tr></table></div></div></p><a href=https://trukhanov.com/2014/01/find-all-vmware-vms-created-in-a-given-period/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Jan 15, 2014
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Uncategorized/>Uncategorized</a>&nbsp;
+</span>
+</div></article><article class=post-preview>
+<a href=https://trukhanov.com/2014/01/restoring-mssql-database-to-new-location-from-command-line-with-ibm-tsm/>
+<h2 class=post-title>Restoring MSSQL database to new location from command line with IBM TSM</h2></a>
+<div class=post-entry>
+<p><p>Just a simple commands sequence with comments.</p><blockquote>
+<p>tdpsqlc.exe q tsm SOURCE_DB_NAME f /all</p></blockquote><p>write down Database Object Name for needed full backup.</p></p><a href=https://trukhanov.com/2014/01/restoring-mssql-database-to-new-location-from-command-line-with-ibm-tsm/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Jan 10, 2014
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Uncategorized/>Uncategorized</a>&nbsp;
+</span>
+</div></article><article class=post-preview>
+<a href=https://trukhanov.com/2014/01/listing-all-mssql-performed-for-specific-database/>
+<h2 class=post-title>Listing all MSSQL performed for specific database</h2></a>
+<div class=post-entry>
+<p><p>Yesterday I’ve stuck with restoring some MSSQL database, because of incompatibility between used differential and full backups, after I’ve found correct full backup, restore process completed without any problem. The following error identifies that:</p><blockquote>
+<p>The log or differential backup cannot be restored because no files are ready to rollforward</p></blockquote></p><a href=https://trukhanov.com/2014/01/listing-all-mssql-performed-for-specific-database/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Jan 10, 2014
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Backup/>Backup</a>&nbsp;
+<a href=https://trukhanov.com/categories/MSSQL/>MSSQL</a>&nbsp;
+</span>
+</div></article><article class=post-preview>
+<a href=https://trukhanov.com/2014/01/enable-text-console-sol-on-windows-server-2012/>
+<h2 class=post-title>Enable Text Console (SOL) on Windows Server 2012</h2></a>
+<div class=post-entry>
+<p><p>After installing Windows 2012 on old Fujitsu Primergy RX200 we lost ability to manage it with serial console. We’ve even tried to update iRMC firmware with no luck. Problem was resolved after we enabled EMS (Emergency Management Services) with the following set of commands:</p><blockquote>
+<p>BCDedit /bootems {Boot_entry_id} ON</p><p>bcdedit /ems on</p><p>bcdedit /emssettings EMSPORT:2 EMSBAUDRATE:115200</p></blockquote></p><a href=https://trukhanov.com/2014/01/enable-text-console-sol-on-windows-server-2012/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Jan 10, 2014
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Windows-Server/>Windows Server</a>&nbsp;
+</span>
+</div></article></div><ul class=pager>
+<li class=next>
+<a href=https://trukhanov.com/post/page/2/>Older &rarr;</a>
+</li></ul></div><footer>
+<div class=social-icons>
+</div><div class=container>
+<p class="credits copyright">
+<a href=https://trukhanov.com/about></a>
+&nbsp;&copy;
+2017
+&nbsp;/&nbsp;
+<a href=https://trukhanov.com/>Perpetuum informatio - Never ending IT story</a>
+&nbsp;&ndash;&nbsp;
+<em class="fas fa-moon" id=dark-mode-toggle></em>
+</p><p class="credits theme-by">
+Powered By <a href=https://gohugo.io>Hugo</a>&nbsp;
+Theme
+<a href=https://github.com/matsuyoshi30/harbor>Harbor</a>
+</p></div></footer></body></html>

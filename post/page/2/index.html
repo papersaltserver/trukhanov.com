@@ -1,0 +1,159 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<title>Posts</title><script async src="https://www.googletagmanager.com/gtag/js?id=UA-19900770-2"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","UA-19900770-2")</script>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<link rel=alternate type=application/rss+xml href=https://trukhanov.com/index.xml title="Perpetuum informatio - Never ending IT story">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Posts">
+<meta name=twitter:description content>
+<link rel=stylesheet href=https://trukhanov.com/fontawesome/css/all.min.css>
+<link crossorigin=anonymous href=/css/styles.min.css integrity rel="preload stylesheet" as=style>
+<link rel=stylesheet href=https://trukhanov.com/css/custom.css>
+<link id=dark-mode-theme crossorigin=anonymous href=/css/dark.min.css integrity rel="preload stylesheet" as=style>
+<script>var darkTheme=document.getElementById("dark-mode-theme"),storedTheme=localStorage.getItem("dark-mode-storage");storedTheme==="dark"?darkTheme.disabled=!1:storedTheme==="light"&&(darkTheme.disabled=!0)</script>
+<script defer crossorigin=anonymous src=/js/theme.js integrity></script>
+<script defer crossorigin=anonymous src=/js/instantpage.min.js integrity></script><meta name=generator content="Hugo 0.93.0">
+</head><body>
+<header>
+<nav class=navbar>
+<div class=nav>
+<ul class=nav-links>
+</ul></div></nav><div class=intro-header>
+<div class=container>
+<div class=post-heading>
+<h1>
+Posts
+</h1><span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Oct 3, 2017
+</span>
+</div></div></div></header><div class=container role=main>
+<div class=posts-list>
+<article class=post-preview>
+<a href=https://trukhanov.com/2013/12/find-all-active-ad-users-not-expiring-in-a-month/>
+<h2 class=post-title>Find all active AD users not expiring in a month</h2></a>
+<div class=post-entry>
+<p><p>Sometimes your AD has a lots of temporary users, with accounts expiring in near future, and to ensure that only legitimate users have never expiring or long expiring accounts you want to audit your accounts. To do so, perform next:</p><ol>
+<li>Create test account expiring today</li></ol></p><a href=https://trukhanov.com/2013/12/find-all-active-ad-users-not-expiring-in-a-month/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Dec 23, 2013
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Active-Directory/>Active Directory</a>&nbsp;
+<a href=https://trukhanov.com/categories/Windows-Server/>Windows Server</a>&nbsp;
+</span>
+</div></article><article class=post-preview>
+<a href=https://trukhanov.com/2013/12/unexpected-server-reboot-caused-by-windows-update/>
+<h2 class=post-title>Unexpected server reboot caused by windows update</h2></a>
+<div class=post-entry>
+<p><p>Recently I’ve got unexpected Windows server 2008 R2 reboot with some recovery reason, which is quite uninformative:</p><blockquote>
+<p>The process C:\Windows\system32\svchost.exe (<em>servername</em>) has initiated the restart of computer <em>servername</em> on behalf of user NT AUTHORITY\SYSTEM for the following reason: Operating System: Recovery (Planned)<br>
+Reason Code: 0x80020002<br>
+Shutdown Type: restart<br>
+Comment:</p></blockquote></p><a href=https://trukhanov.com/2013/12/unexpected-server-reboot-caused-by-windows-update/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Dec 19, 2013
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Uncategorized/>Uncategorized</a>&nbsp;
+</span>
+</div></article><article class=post-preview>
+<a href=https://trukhanov.com/2013/12/tivoli-storage-manager-active-data-pool/>
+<h2 class=post-title>TSM Active Data pool file number</h2></a>
+<div class=post-entry>
+<p><p>One of the strange features of TSM AD pool is that, when you do first incremental backup (for example 10 files), then change some data (for example 5 files) you’ll get incorrect number of files with <code>query occupancy stg=adpool</code> command. It will show you number of files equal to 15, the same as in your primary storage pool. But if you compare sizes of pool you’ll see a difference. So do not rely only on file number in your AD storage pool.</p></p><a href=https://trukhanov.com/2013/12/tivoli-storage-manager-active-data-pool/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Dec 19, 2013
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Backup/>Backup</a>&nbsp;
+<a href=https://trukhanov.com/categories/TSM/>TSM</a>&nbsp;
+</span>
+</div></article><article class=post-preview>
+<a href=https://trukhanov.com/2013/11/clustered-ms-sql-dependency-on-mounted-volume/>
+<h2 class=post-title>Clustered MS SQL dependency on mounted volume</h2></a>
+<div class=post-entry>
+<p><p>Recently I have added new mounted volume to Microsoft cluster (lets say disk 3 mounted at m:\history), and tried to restore some old backup to it. But after I have run SQL script I’ve immediately got an SQL error:
+<code>Only formatted files on which the cluster resource of the server has a dependency can be used. Either the disk resource containing the file is not present in the cluster group or the cluster resource of the SQL Server does not have a dependency on it.</code></p></p><a href=https://trukhanov.com/2013/11/clustered-ms-sql-dependency-on-mounted-volume/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Nov 14, 2013
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Uncategorized/>Uncategorized</a>&nbsp;
+</span>
+</div></article><article class=post-preview>
+<a href=https://trukhanov.com/2013/11/vsphere-client-and-space-key/>
+<h2 class=post-title>vSphere Client and space key</h2></a>
+<div class=post-entry>
+<p><p>Recently we have had a very confusing incident while trying to access one of our production virtual server through vSphere client. As linux servers in default installation redraw its console only on some event (some input or output), every time we open virtual machine with linux to see its console we need to press some key on keyboard. The problem is when you just opened console in the thick client user’s input focused on the toolbar. More precisely on its first button, which is “Shutdown”. When you press this button you’ll get confirmation dialog and input focus is on the “OK” button again. So if just opened server console, without clicking mouse anywhere, and quickly press space key two times, it will immediately shutdown you server, which will cause unplanned downtime to your production system. Very disappointing application design for industry’s leader solution. By the way, vSphere webclient doesn’t have such problems.</p></p><a href=https://trukhanov.com/2013/11/vsphere-client-and-space-key/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Nov 13, 2013
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Uncategorized/>Uncategorized</a>&nbsp;
+</span>
+</div></article><article class=post-preview>
+<a href=https://trukhanov.com/2013/09/error-1602-or-1618-during-install-of-any-msi-packet/>
+<h2 class=post-title>Error 1602 or 1618 during install of any msi packet</h2></a>
+<div class=post-entry>
+<p><p>Recently we’ve got error installing driver on our Windows 2008 R2 server. It does not provide any specific error dialog, just constantly showing “Please wait while the application is preparing for the first use”. After you press Cancel, it gives you error message saying that installation could not be completed because other installation is in progress. The only diagnostic message in the Application log was EventID 1033 form MsiInstaller with message <code>Installation success or error status: 1602</code> or <code>Installation success or error status: 1618</code>. Which obviously not helpful. Internet search revealed, that this message is quite common and can be caused by many things.</p></p><a href=https://trukhanov.com/2013/09/error-1602-or-1618-during-install-of-any-msi-packet/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Sep 25, 2013
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Uncategorized/>Uncategorized</a>&nbsp;
+</span>
+</div></article><article class=post-preview>
+<a href=https://trukhanov.com/2012/02/error-1053-while-starting-netbackup-client-service/>
+<h2 class=post-title>Error 1053 while starting NetBackUP Client Service</h2></a>
+<div class=post-entry>
+<p><p>Recently I have stuck with error 1053 <code>The service did not respond to the start or control request in a timely fashion</code> while starting NetBackUP Client Service. But the error appeared much faster then 30 seconds which is actual service timeout, so the message was incorrect. The problem was that affected server was joined into MSCS to host SQL server group. So to backup MSSQL we run NetBackUP Client Service as domain user with rights to access SQL bases. To start service correctly domain user must have local server administrator right. After I’ve added this user to local administrator’s group error gone.</p></p><a href=https://trukhanov.com/2012/02/error-1053-while-starting-netbackup-client-service/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Feb 16, 2012
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Uncategorized/>Uncategorized</a>&nbsp;
+</span>
+</div></article><article class=post-preview>
+<a href=https://trukhanov.com/2011/08/fixing-msdtc-errors/>
+<h2 class=post-title>Fixing MSDTC errors 4135 4163 4185 4112</h2></a>
+<div class=post-entry>
+<p><p>One of clients had problem with MSDTC service on Windows 2003 server, which couldn’t start. After short investigation I have found corresponding errors in Application log:</p><blockquote>
+<p>Event Type:    Error<br>
+Event Source:    MSDTC<br>
+Event Category:    LOG<br>
+Event ID:    4163<br>
+Date:        2011-08-02<br>
+Time:        12:02:08 PM<br>
+User:        N/A<br>
+Computer:    <em>servername</em><br>
+Description:<br>
+MS DTC log file not found. After ensuring that all Resource Managers coordinated by MS DTC have no indoubt transactions, please run msdtc -resetlog to create the log file.</p><p>For more information, see Help and Support Center at <a href=http://go.microsoft.com/fwlink/events.asp>http://go.microsoft.com/fwlink/events.asp</a>.</p></blockquote></p><a href=https://trukhanov.com/2011/08/fixing-msdtc-errors/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Aug 2, 2011
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/ProblemFixing/>ProblemFixing</a>&nbsp;
+<a href=https://trukhanov.com/categories/Windows-Server/>Windows Server</a>&nbsp;
+</span>
+</div></article></div><ul class=pager>
+<li class=previous>
+<a href=https://trukhanov.com/post/page/1/>&larr; Newer</a>
+</li></ul></div><footer>
+<div class=social-icons>
+</div><div class=container>
+<p class="credits copyright">
+<a href=https://trukhanov.com/about></a>
+&nbsp;&copy;
+2017
+&nbsp;/&nbsp;
+<a href=https://trukhanov.com/>Perpetuum informatio - Never ending IT story</a>
+&nbsp;&ndash;&nbsp;
+<em class="fas fa-moon" id=dark-mode-toggle></em>
+</p><p class="credits theme-by">
+Powered By <a href=https://gohugo.io>Hugo</a>&nbsp;
+Theme
+<a href=https://github.com/matsuyoshi30/harbor>Harbor</a>
+</p></div></footer></body></html>

@@ -1,0 +1,94 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<title>TSM</title><script async src="https://www.googletagmanager.com/gtag/js?id=UA-19900770-2"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","UA-19900770-2")</script>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<link rel=alternate type=application/rss+xml href=https://trukhanov.com/index.xml title="Perpetuum informatio - Never ending IT story">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="TSM">
+<meta name=twitter:description content>
+<link rel=stylesheet href=https://trukhanov.com/fontawesome/css/all.min.css>
+<link crossorigin=anonymous href=/css/styles.min.css integrity rel="preload stylesheet" as=style>
+<link rel=stylesheet href=https://trukhanov.com/css/custom.css>
+<link id=dark-mode-theme crossorigin=anonymous href=/css/dark.min.css integrity rel="preload stylesheet" as=style>
+<script>var darkTheme=document.getElementById("dark-mode-theme"),storedTheme=localStorage.getItem("dark-mode-storage");storedTheme==="dark"?darkTheme.disabled=!1:storedTheme==="light"&&(darkTheme.disabled=!0)</script>
+<script defer crossorigin=anonymous src=/js/theme.js integrity></script>
+<script defer crossorigin=anonymous src=/js/instantpage.min.js integrity></script><meta name=generator content="Hugo 0.93.0">
+</head><body>
+<header>
+<nav class=navbar>
+<div class=nav>
+<ul class=nav-links>
+</ul></div></nav><div class=intro-header>
+<div class=container>
+<div class=tags-heading>
+<h1>
+TSM
+</h1></div></div></div></header><div class=container role=main>
+<div class=posts-list>
+<article class=post-preview>
+<a href=https://trukhanov.com/2015/04/backing-up-dag-cluster-with-tsm/>
+<h2 class=post-title>Backing up DAG cluster with TSM</h2></a>
+<div class=post-entry>
+<p><p>There is a problem with DAG cluster backup in TSM. When you create script with /PREFERDAGPASSIVE key, your script return error 464 – nothing to backup. So I’ve created script to analyze Exchange’s databases if there is healthy passive copy of database to backup, so you run backup for the only healthy copy of database and for passive healthy copies of database. If there is nothing to backup than script returns 0.</p></p><a href=https://trukhanov.com/2015/04/backing-up-dag-cluster-with-tsm/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Apr 29, 2015
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/TSM/>TSM</a>&nbsp;
+</span>
+</div></article><article class=post-preview>
+<a href=https://trukhanov.com/2015/04/troubleshooting-pending-schedules-in-tsm/>
+<h2 class=post-title>Troubleshooting Pending schedules in TSM</h2></a>
+<div class=post-entry>
+<p><p>Today we’ve found that one of our servers can make backups manually and works fine with polling mode, but when it is switched to prompting mode then schedule never run. After some investigation we’ve found <a href=http://www.tsmblog.org/tag/tcpclientport/>http://www.tsmblog.org/tag/tcpclientport/</a> because we thought we have a problem with port of CAD.</p></p><a href=https://trukhanov.com/2015/04/troubleshooting-pending-schedules-in-tsm/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Apr 29, 2015
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/TSM/>TSM</a>&nbsp;
+</span>
+</div></article><article class=post-preview>
+<a href=https://trukhanov.com/2015/03/tsm-ans0106e-error-on-backup-or-dsmc-run/>
+<h2 class=post-title>TSM ANS0106E error on backup or dsmc run</h2></a>
+<div class=post-entry>
+<p><p>Recently we’ve found that one of our TSM servers stopped to back up all virtual machines. After examination of dsmerror.log files we’ve found strange messages:</p><blockquote>
+<p>03/20/2015 09:48:42 ANS0106E Message index not found for message 2252.<br>
+03/20/2015 09:49:01 ANS0106E Message index not found for message 14320.<br>
+03/20/2015 09:49:01 ANS0106E Message index not found for message 14180.</p></blockquote><p>And so on.</p></p><a href=https://trukhanov.com/2015/03/tsm-ans0106e-error-on-backup-or-dsmc-run/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Mar 30, 2015
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/TSM/>TSM</a>&nbsp;
+</span>
+</div></article><article class=post-preview>
+<a href=https://trukhanov.com/2013/12/tivoli-storage-manager-active-data-pool/>
+<h2 class=post-title>TSM Active Data pool file number</h2></a>
+<div class=post-entry>
+<p><p>One of the strange features of TSM AD pool is that, when you do first incremental backup (for example 10 files), then change some data (for example 5 files) you’ll get incorrect number of files with <code>query occupancy stg=adpool</code> command. It will show you number of files equal to 15, the same as in your primary storage pool. But if you compare sizes of pool you’ll see a difference. So do not rely only on file number in your AD storage pool.</p></p><a href=https://trukhanov.com/2013/12/tivoli-storage-manager-active-data-pool/ class=post-read-more>Read More</a>
+</div><div class=postmeta>
+<span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Dec 19, 2013
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Backup/>Backup</a>&nbsp;
+<a href=https://trukhanov.com/categories/TSM/>TSM</a>&nbsp;
+</span>
+</div></article></div></div><footer>
+<div class=social-icons>
+</div><div class=container>
+<p class="credits copyright">
+<a href=https://trukhanov.com/about></a>
+&nbsp;&copy;
+2017
+&nbsp;/&nbsp;
+<a href=https://trukhanov.com/>Perpetuum informatio - Never ending IT story</a>
+&nbsp;&ndash;&nbsp;
+<em class="fas fa-moon" id=dark-mode-toggle></em>
+</p><p class="credits theme-by">
+Powered By <a href=https://gohugo.io>Hugo</a>&nbsp;
+Theme
+<a href=https://github.com/matsuyoshi30/harbor>Harbor</a>
+</p></div></footer></body></html>

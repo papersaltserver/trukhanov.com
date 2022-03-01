@@ -1,0 +1,110 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<title>Listing all MSSQL performed for specific database</title><script async src="https://www.googletagmanager.com/gtag/js?id=UA-19900770-2"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","UA-19900770-2")</script>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<link rel=alternate type=application/rss+xml href=https://trukhanov.com/index.xml title="Perpetuum informatio - Never ending IT story">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Listing all MSSQL performed for specific database">
+<meta name=twitter:description content="Yesterday I’ve stuck with restoring some MSSQL database, because of incompatibility between used differential and full backups, after I’ve found correct full backup, restore process completed without any problem. The following error identifies that:
+
+The log or differential backup cannot be restored because no files are ready to rollforward
+">
+<link rel=stylesheet href=https://trukhanov.com/fontawesome/css/all.min.css>
+<link crossorigin=anonymous href=/css/styles.min.css integrity rel="preload stylesheet" as=style>
+<link rel=stylesheet href=https://trukhanov.com/css/custom.css>
+<link id=dark-mode-theme crossorigin=anonymous href=/css/dark.min.css integrity rel="preload stylesheet" as=style>
+<script>var darkTheme=document.getElementById("dark-mode-theme"),storedTheme=localStorage.getItem("dark-mode-storage");storedTheme==="dark"?darkTheme.disabled=!1:storedTheme==="light"&&(darkTheme.disabled=!0)</script>
+<script defer crossorigin=anonymous src=/js/theme.js integrity></script>
+<script defer crossorigin=anonymous src=/js/instantpage.min.js integrity></script><meta name=generator content="Hugo 0.93.0">
+</head><body>
+<header>
+<nav class=navbar>
+<div class=nav>
+<ul class=nav-links>
+</ul></div></nav><div class=intro-header>
+<div class=container>
+<div class=post-heading>
+<h1>
+Listing all MSSQL performed for specific database
+</h1><span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Jan 10, 2014
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Backup/>Backup</a>&nbsp;
+<a href=https://trukhanov.com/categories/MSSQL/>MSSQL</a>&nbsp;
+</span>
+</div></div></div></header><div class=container role=main>
+<article class=article class=blog-post>
+<p>Yesterday I’ve stuck with restoring some MSSQL database, because of incompatibility between used differential and full backups, after I’ve found correct full backup, restore process completed without any problem. The following error identifies that:</p><blockquote>
+<p>The log or differential backup cannot be restored because no files are ready to rollforward</p></blockquote><p>The following script helped me to find out correct backup chain:</p><div class=highlight><div style=-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sql data-lang=sql><span style=display:flex><span><span style=color:green;font-weight:700>SELECT</span><span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb></span>TOP<span style=color:#bbb> </span><span style=color:#666>1000</span><span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb></span>s.database_name,<span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb></span><span style=color:green;font-weight:700>CASE</span><span style=color:#bbb> </span>s.<span style=color:green;font-weight:700>type</span><span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb></span><span style=color:green;font-weight:700>WHEN</span><span style=color:#bbb> </span><span style=color:#ba2121>&#39;D&#39;</span><span style=color:#bbb> </span><span style=color:green;font-weight:700>THEN</span><span style=color:#bbb> </span><span style=color:#ba2121>&#39;Full&#39;</span><span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb></span><span style=color:green;font-weight:700>WHEN</span><span style=color:#bbb> </span><span style=color:#ba2121>&#39;I&#39;</span><span style=color:#bbb> </span><span style=color:green;font-weight:700>THEN</span><span style=color:#bbb> </span><span style=color:#ba2121>&#39;Differential&#39;</span><span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb></span><span style=color:green;font-weight:700>WHEN</span><span style=color:#bbb> </span><span style=color:#ba2121>&#39;L&#39;</span><span style=color:#bbb> </span><span style=color:green;font-weight:700>THEN</span><span style=color:#bbb> </span><span style=color:#ba2121>&#39;Transaction Log&#39;</span><span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb></span><span style=color:green;font-weight:700>END</span><span style=color:#bbb> </span><span style=color:green;font-weight:700>AS</span><span style=color:#bbb> </span>BackupType,<span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb></span><span style=color:green;font-weight:700>CAST</span>(DATEDIFF(<span style=color:green;font-weight:700>second</span>,<span style=color:#bbb> </span>s.backup_start_date,<span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb></span>s.backup_finish_date)<span style=color:#bbb> </span><span style=color:green;font-weight:700>AS</span><span style=color:#bbb> </span><span style=color:green>VARCHAR</span>(<span style=color:#666>4</span>))<span style=color:#bbb> </span><span style=color:#666>+</span><span style=color:#bbb> </span><span style=color:#ba2121>&#39; Seconds&#39;</span><span style=color:#bbb> </span>TimeTaken,<span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb></span>s.backup_start_date,<span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb></span><span style=color:green;font-weight:700>CAST</span>(s.first_lsn<span style=color:#bbb> </span><span style=color:green;font-weight:700>AS</span><span style=color:#bbb> </span><span style=color:green>VARCHAR</span>(<span style=color:#666>50</span>))<span style=color:#bbb> </span><span style=color:green;font-weight:700>AS</span><span style=color:#bbb> </span>first_lsn,<span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb></span><span style=color:green;font-weight:700>CAST</span>(s.last_lsn<span style=color:#bbb> </span><span style=color:green;font-weight:700>AS</span><span style=color:#bbb> </span><span style=color:green>VARCHAR</span>(<span style=color:#666>50</span>))<span style=color:#bbb> </span><span style=color:green;font-weight:700>AS</span><span style=color:#bbb> </span>last_lsn,<span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb></span>m.physical_device_name,<span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb></span><span style=color:green;font-weight:700>CAST</span>(<span style=color:green;font-weight:700>CAST</span>(s.backup_size<span style=color:#bbb> </span><span style=color:#666>/</span><span style=color:#bbb> </span><span style=color:#666>1000000</span><span style=color:#bbb> </span><span style=color:green;font-weight:700>AS</span><span style=color:#bbb> </span><span style=color:green>INT</span>)<span style=color:#bbb> </span><span style=color:green;font-weight:700>AS</span><span style=color:#bbb> </span><span style=color:green>VARCHAR</span>(<span style=color:#666>14</span>))<span style=color:#bbb> </span><span style=color:#666>+</span><span style=color:#bbb> </span><span style=color:#ba2121>&#39; MB&#39;</span><span style=color:#bbb> </span><span style=color:green;font-weight:700>AS</span><span style=color:#bbb> </span>bkSize,<span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb></span>s.<span style=color:green;font-weight:700>server_name</span>,<span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb></span>s.recovery_model<span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb></span><span style=color:green;font-weight:700>FROM</span><span style=color:#bbb> </span>msdb.dbo.backupset<span style=color:#bbb> </span>s<span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb></span><span style=color:green;font-weight:700>INNER</span><span style=color:#bbb> </span><span style=color:green;font-weight:700>JOIN</span><span style=color:#bbb> </span>msdb.dbo.backupmediafamily<span style=color:#bbb> </span>m<span style=color:#bbb> </span><span style=color:green;font-weight:700>ON</span><span style=color:#bbb> </span>s.media_set_id<span style=color:#bbb> </span><span style=color:#666>=</span><span style=color:#bbb> </span>m.media_set_id<span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb></span><span style=color:green;font-weight:700>WHERE</span><span style=color:#bbb> </span>s.database_name<span style=color:#bbb> </span><span style=color:#666>=</span><span style=color:#bbb> </span>DB_NAME()<span style=color:#bbb> </span><span style=color:#408080;font-style:italic>-- Remove this line for all the database
+</span></span></span><span style=display:flex><span><span style=color:#408080;font-style:italic></span><span style=color:green;font-weight:700>ORDER</span><span style=color:#bbb> </span><span style=color:green;font-weight:700>BY</span><span style=color:#bbb> </span>backup_start_date<span style=color:#bbb> </span><span style=color:green;font-weight:700>DESC</span>,<span style=color:#bbb> </span>backup_finish_date<span style=color:#bbb>
+</span></span></span><span style=display:flex><span><span style=color:#bbb></span><span style=color:green;font-weight:700>GO</span><span style=color:#bbb>
+</span></span></span></code></pre></td></tr></table></div></div><p>You might want to replace TOP 100o with bigger value if you have a lots of backups.</p><div class=blog-tags>
+<a href=https://trukhanov.com/tags/backup/>backup</a>&nbsp;
+<a href=https://trukhanov.com/tags/mssql/>mssql</a>&nbsp;
+<a href=https://trukhanov.com/tags/script/>script</a>&nbsp;
+</div></article><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname=="localhost")return;var e=document.createElement("script"),t;e.type="text/javascript",e.async=!0,t="trukhanov-com",e.src="//"+t+".disqus.com/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)})()</script>
+<noscript>Please enable JavaScript to view the
+<a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com/ class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div><footer>
+<div class=social-icons>
+</div><div class=container>
+<p class="credits copyright">
+<a href=https://trukhanov.com/about></a>
+&nbsp;&copy;
+2017
+&nbsp;/&nbsp;
+<a href=https://trukhanov.com/>Perpetuum informatio - Never ending IT story</a>
+&nbsp;&ndash;&nbsp;
+<em class="fas fa-moon" id=dark-mode-toggle></em>
+</p><p class="credits theme-by">
+Powered By <a href=https://gohugo.io>Hugo</a>&nbsp;
+Theme
+<a href=https://github.com/matsuyoshi30/harbor>Harbor</a>
+</p></div></footer></body></html>

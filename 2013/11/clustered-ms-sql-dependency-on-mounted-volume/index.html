@@ -1,0 +1,60 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<title>Clustered MS SQL dependency on mounted volume</title><script async src="https://www.googletagmanager.com/gtag/js?id=UA-19900770-2"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","UA-19900770-2")</script>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<link rel=alternate type=application/rss+xml href=https://trukhanov.com/index.xml title="Perpetuum informatio - Never ending IT story">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Clustered MS SQL dependency on mounted volume">
+<meta name=twitter:description content="Recently I have added new mounted volume to Microsoft cluster (lets say disk 3 mounted at m:\history), and tried to restore some old backup to it. But after I have run SQL script I’ve immediately got an SQL error:
+Only formatted files on which the cluster resource of the server has a dependency can be used. Either the disk resource containing the file is not present in the cluster group or the cluster resource of the SQL Server does not have a dependency on it.">
+<link rel=stylesheet href=https://trukhanov.com/fontawesome/css/all.min.css>
+<link crossorigin=anonymous href=/css/styles.min.css integrity rel="preload stylesheet" as=style>
+<link rel=stylesheet href=https://trukhanov.com/css/custom.css>
+<link id=dark-mode-theme crossorigin=anonymous href=/css/dark.min.css integrity rel="preload stylesheet" as=style>
+<script>var darkTheme=document.getElementById("dark-mode-theme"),storedTheme=localStorage.getItem("dark-mode-storage");storedTheme==="dark"?darkTheme.disabled=!1:storedTheme==="light"&&(darkTheme.disabled=!0)</script>
+<script defer crossorigin=anonymous src=/js/theme.js integrity></script>
+<script defer crossorigin=anonymous src=/js/instantpage.min.js integrity></script><meta name=generator content="Hugo 0.93.0">
+</head><body>
+<header>
+<nav class=navbar>
+<div class=nav>
+<ul class=nav-links>
+</ul></div></nav><div class=intro-header>
+<div class=container>
+<div class=post-heading>
+<h1>
+Clustered MS SQL dependency on mounted volume
+</h1><span class=meta-post>
+<em class="fa fa-calendar-alt"></em>&nbsp;Nov 14, 2013
+&nbsp;&nbsp;&nbsp;<em class="fa fa-folder-open"></em>&nbsp;
+<a href=https://trukhanov.com/categories/Uncategorized/>Uncategorized</a>&nbsp;
+</span>
+</div></div></div></header><div class=container role=main>
+<article class=article class=blog-post>
+<p>Recently I have added new mounted volume to Microsoft cluster (lets say disk 3 mounted at m:\history), and tried to restore some old backup to it. But after I have run SQL script I’ve immediately got an SQL error:
+<code>Only formatted files on which the cluster resource of the server has a dependency can be used. Either the disk resource containing the file is not present in the cluster group or the cluster resource of the SQL Server does not have a dependency on it.</code></p><p>After short searches I’ve found couple of <a href=http://support.microsoft.com/kb/295732/en-us>links</a> stating than I need to add my volume to clustered MS SQL service dependencies to operate with this volume. By the way Microsoft’s manuals does not clarify do you really need to bring clustered MS SQL server offline before adding new dependency or not. One instruction says that you should to do so and others say that you can just add new dependency without interruption.<br>
+But after I’ve tried to follow this instruction the problem have not gone, and script showed the same error. I’ve tried to add source file’s drive (lets say disk 2 mounted to m:\backups) to dependencies as well without luck. The error was resolved only after I’ve added “root” volume M:. But this volume was previously added to original disk dependencies, so disk 3 mounted at m:\history was dependent on disk 1 (M:). So it seems clustered MS SQL does not look through dependency chain and just tests the drive which starts the file path, without worrying about real dependent volume. Hope this will save your time.</p><div class=blog-tags>
+<a href=https://trukhanov.com/tags/cluster/>cluster</a>&nbsp;
+<a href=https://trukhanov.com/tags/mssql/>mssql</a>&nbsp;
+</div></article><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname=="localhost")return;var e=document.createElement("script"),t;e.type="text/javascript",e.async=!0,t="trukhanov-com",e.src="//"+t+".disqus.com/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)})()</script>
+<noscript>Please enable JavaScript to view the
+<a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com/ class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div><footer>
+<div class=social-icons>
+</div><div class=container>
+<p class="credits copyright">
+<a href=https://trukhanov.com/about></a>
+&nbsp;&copy;
+2017
+&nbsp;/&nbsp;
+<a href=https://trukhanov.com/>Perpetuum informatio - Never ending IT story</a>
+&nbsp;&ndash;&nbsp;
+<em class="fas fa-moon" id=dark-mode-toggle></em>
+</p><p class="credits theme-by">
+Powered By <a href=https://gohugo.io>Hugo</a>&nbsp;
+Theme
+<a href=https://github.com/matsuyoshi30/harbor>Harbor</a>
+</p></div></footer></body></html>
